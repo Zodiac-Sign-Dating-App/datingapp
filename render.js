@@ -37,13 +37,13 @@ export const renderHeroCard = function(hero) {
       </div>
       <div class="media-content">
         <p class="title is-4" style="color:${hero.color}; font-size: 40px;">${hero.name}</p>
-        <p style="color:white;"><span style="font-weight: bold;">${hero.first} ${hero.last}</p>
+        <p style="color:white;"><span style="font-weight: bold;">${hero.first}</p>
         <p class="subtitle is-6" style="color:white;"><i>"${hero.subtitle}"</i></p>
-        <p style="color:white;"><span style="font-weight: bold;">First Appearance: </span>${hero.firstSeen}</p>
+        <p style="color:white;"><span style="font-weight: bold;">Interests: </span>${hero.firstSeen}</p>
         
       </div>
     </div>
-
+<h1 class="title is-4" style="color:${hero.color}; font-size: 30px;">Bio</h1>
     <div class="content" style="color:white;">
     ${hero.description}
       <br>

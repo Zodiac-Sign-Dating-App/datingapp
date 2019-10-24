@@ -3,30 +3,43 @@
   height: 80%;
   width: 75%;
   display: block;
-    margin-left: 50px;
-    margin-right: 50px;
+  /* margin-left: 90px;
+  margin-right: 90px; */
 
+}
+
+body, html {
+    background-color: rgb(44, 0, 95);
 }
 
 .card {
-    width: 350px;
+    width: 100%;
     float: left;
     margin: 11px;
     height: 80%;
-    
 }
 
 .card-image {
-    display: block;
+    display: inline-block;
     margin-left: auto;
     margin-right: auto;
+    text-align: center;
+    padding-top: 20px;
 }
 
-.center {
+.imageProfile {
+    width: 40%;
+    height: 40%;
+    
+}
+
+.profile {
+    border-radius: 60%;
+}
+img.center {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
   }
 
   form {
@@ -79,11 +92,11 @@ media query for mobile portrait layout (479px or less) */
     .card .card-image .image img,
     .card {
       height: 100%;
-      width: 100%;
+      width: 110%;
     }
     
     .card {
-        width: 100%;
+        width: 110%;
     }
     }
   }

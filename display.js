@@ -15,12 +15,12 @@
 export const renderprofileCard = function(profile) {
    
     return `
-    <p class="title is-4" style="color:${profile.color}; font-size: 60px; text-align: center;">Star Crossed</p>
+    <p class="is-4 titleText" style="color:${profile.color}; font-size: 60px; text-align: center;">Star Crossed</p>
     <div style="text-align: center;">
-    <button <a class="button is-rounded EditButton" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
-    <button <a class="button is-rounded EditButton" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-    <button <a class="button is-rounded EditButton" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Messages</a></button>
-    <button <a class="button is-rounded EditButton" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Messages</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
     </div>
     <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
     <div style="padding: none;">
@@ -33,20 +33,20 @@ export const renderprofileCard = function(profile) {
   <div class="card-content">
     <div class="media">
     
-      <div class="media-content">
-        <p class="title is-4" style="color:${profile.color}; font-size: 50px; text-align: center;">${profile.name}</p>
+      <div class="media-content bodyText">
+        <p class="headerText is-4" style="color:${profile.color}; font-size: 50px; text-align: center;">${profile.name}</p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Age: ${profile.age}</p>
         <p class="subtitle is-6" style="color:white; text-align: center;"><i>"${profile.subtitle}"</i></p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Interests: </span>${profile.interests}</p>
         
       </div>
     </div>
-<h1 class="title is-4" style="color:${profile.color}; font-size: 30px;">Bio</h1>
-    <div class="content" style="color:white;">
+<h1 class="is-4 headerText" style="color:${profile.color}; font-size: 30px;">Bio</h1>
+    <div class="content bodyText" style="color:white;">
     ${profile.description}
       <br>
       <br>
-      <button <a class="button is-rounded EditButton" data-id="${profile.id}">Edit Profile</a></button>
+      <button <a class="button is-rounded EditButton headerText" data-id="${profile.id}">Edit Profile</a></button>
     </div>
   </div>
   </div>
@@ -66,55 +66,55 @@ export const renderprofileCard = function(profile) {
 export const renderprofileEditForm = function(match) {
     return `
     
-    <form class="profileForm" data-id="${profile.id}">
+    <form class="profileForm specialText" data-id="${profile.id}">
     
     <div class="field" id="profileFormID">
-  <label class="label blank">profile Name</label>
+  <label class="label blank headerText">profile Name</label>
   <div class="control">
-    <input class="name input" type="text" value="${profile.name}"/>
+    <input class="name input bodyText" type="text" value="${profile.name}"/>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">First Name</label>
+  <label class="label headerText">First Name</label>
   <div class="control">
-    <input class="first input" type="text" placeholder="profile First Name" value="${profile.age}"/>
+    <input class="first input bodyText" type="text" placeholder="profile First Name" value="${profile.age}"/>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Last Name</label>
+  <label class="label headerText">Last Name</label>
   <div class="control">
-    <input class="last input" type="text" placeholder="profile Last Name" value="${profile.last}"/>
+    <input class="last input bodyText" type="text" placeholder="profile Last Name" value="${profile.last}"/>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Subtitle</label>
+  <label class="label headerText">Subtitle</label>
   <div class="control">
-    <input class="sub input" type="text" placeholder="Subtitle" value="${profile.subtitle}"/>
+    <input class="sub input bodyText" type="text" placeholder="Subtitle" value="${profile.subtitle}"/>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">First Seen</label>
+  <label class="label headerText">First Seen</label>
   <div class="control">
-   <input class="seen" type="date" id="start" value="${profile.int}"</input>
+   <input class="seen bodyText" type="date" id="start" value="${profile.int}"</input>
   </div>
 </div>
 
 <div class="field">
-  <label class="label">Description</label>
-<textarea class="description textarea">${profile.description}</textarea>
+  <label class="label headerText">Description</label>
+<textarea class="description textarea bodyText">${profile.description}</textarea>
 </div>
 
 
 <div class="field is-grouped">
   <div class="control">
-    <button class="button is-danger CancelButton" type="cancel" data-id="${profile.id}">Cancel</button>
+    <button class="button is-danger CancelButton specialText" type="cancel" data-id="${profile.id}">Cancel</button>
   </div>
   <div class="control">
-    <button class="button is-dark SubmitButton" type="submit" data-id="${profile.id}">Save</button>
+    <button class="button is-dark SubmitButton specialText" type="submit" data-id="${profile.id}">Save</button>
   </div>
 </div> 
 </form>

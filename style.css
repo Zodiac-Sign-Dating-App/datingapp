@@ -1,3 +1,23 @@
+@font-face {
+  font-family: auch;
+  src: url(auch.otf);
+}
+
+@font-face {
+  font-family: alexana;
+  src: url(alexana.ttf);
+}
+
+@font-face {
+  font-family: potra;
+  src: url(potra.ttf);
+}
+
+@font-face {
+  font-family: castela;
+  src: url(castela.ttf);
+}
+
 .card .card-image,
 .card .card-image .image img {
   height: 80%;
@@ -10,6 +30,22 @@
 
 body, html {
     background-color: rgb(44, 0, 95);
+}
+
+.bodyText {
+  font-family: auch;
+}
+
+.titleText {
+  font-family: castela;
+}
+
+.headerText {
+  font-family: potra;
+}
+
+.specialText {
+  font-family: alexana;
 }
 
 .card {
@@ -36,6 +72,7 @@ body, html {
 .profile {
     border-radius: 60%;
 }
+
 img.center {
     display: block;
     margin-left: auto;

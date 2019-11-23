@@ -7,18 +7,21 @@ $(function() {
 
     $message.html('');
 
-    const data = $form.serializeArray().reduce((o, x) => {
-      o[x.name] = x.value;
-      return o;
-    }, {});
+    // const data = $form.serializeArray().reduce((o, x) => {
+    //   o[x.name] = x.value;
+    //   return o;
+    // }, {});
+
+    const data = $form.serialize();
     
     $.ajax({
       url: 'http://localhost:3000/account/create',
       type: 'POST',
       data,
-      xhrFields: {
-          withCredentials: true,
-      },
+      withCredentials: true,
+      // xhrFields: {
+      //     withCredentials: true,
+      // },
     }).then(() => {
       $message.html('<span class="has-text-success">Success! You are now signed up.</span>');
     }).catch(() => {

@@ -1,2 +1,13 @@
 {
+  "users": {
+    "omcphaul": {
+      "passwordHash": "$2a$10$jTEgT5WB.75efT59YwxrIe4m0MYEpKWk3YWvHQV5L/FV0kyJBpomi"
+    },
+    "olivia alexandria mcphaul": {
+      "passwordHash": "$2a$10$TmrOfCKUeCdvT1Fda9dXN.viv4IsUYibvAJL.bCkBggpdc6690eLm"
+    },
+    "john hancock": {
+      "passwordHash": "$2a$10$BTILU0EGxjVHuXhWxd84WOQ7/esVP9XUT8mkx0GvcYdNTJL4NL9ke"
+    }
+  }
 }

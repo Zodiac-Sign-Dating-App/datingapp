@@ -2,7 +2,7 @@ comp426_finalProject
 
 Zodiac Dating App
 
-For the final project of COMP 426, my team has been tasked to design and implement a fully-featured, professional web application.
+For the final project of COMP 426, our team has been tasked to design and implement a fully-featured, professional web application.
 
 OVERVIEW
 
@@ -10,6 +10,7 @@ OVERVIEW
 
 TASKS
 
-    Allow individuals to create dating profiles that store a password, username, age, dating preferences, brief bio, and zodiac sign.
-    Successfully match accounts based on compatibility metrics
-    Integrate a social-based 3rd party API
+    - Allow individuals to create dating profiles that store a password, username, age, dating preferences,
+    brief bio, and zodiac sign.
+    - Successfully match accounts based on compatibility metrics
+    - Integrate a restFUL 3rd party API

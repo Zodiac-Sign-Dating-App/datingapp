@@ -1,21 +1,21 @@
 @font-face {
   font-family: auch;
-  src: url(auch.otf);
+  src: url(fonts/auch.otf);
 }
 
 @font-face {
   font-family: alexana;
-  src: url(alexana.ttf);
+  src: url(fonts/alexana.ttf);
 }
 
 @font-face {
   font-family: potra;
-  src: url(potra.ttf);
+  src: url(fonts/potra.ttf);
 }
 
 @font-face {
   font-family: castela;
-  src: url(castela.ttf);
+  src: url(fonts/castela.ttf);
 }
 
 .card .card-image,

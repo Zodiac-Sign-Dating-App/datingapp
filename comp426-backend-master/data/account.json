@@ -1,10 +1,12 @@
 {
   "users": {
-    "random person": {
-      "passwordHash": "$2a$10$XNprkH7P/xzCLlWT1kboc.KkxEPu3srs5k.AqrRdFgmLp0Tq/Ht/6",
-      "birthday": "1997-04-24",
-      "gender": "female",
-      "preference": "women"
+    "test person": {
+      "passwordHash": "$2a$10$L6.Xl21.KnJ/aX1DjjaMcOKNWlOiPy.zCTPBQ7FbycTD4ljF8UTsa",
+      "birthday": "1998-02-19",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Pisces"
     }
   }
 }

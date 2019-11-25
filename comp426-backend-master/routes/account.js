@@ -77,8 +77,16 @@ router.post('/create', function (req, res) {
   const dob = req.body.bday;
   const sex = req.body.gender;
   const pref = req.body.preference;
-
-
+  
+  let today = new Date();
+  let birthDate= new Date(dob);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+  }
+  //console.log(birthDate.getDate());
+  let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
   let user = accountStore.get(`users.${name}`);
   if (user) {
     res.status(401).send({msg: `User '${req.body.name}' is already a registered user.`});
@@ -91,6 +99,8 @@ router.post('/create', function (req, res) {
       birthday: dob,
       gender: sex,
       preference: pref,
+      age: age,
+      sign: sign,
       data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});
@@ -103,3 +113,10 @@ async function checkUser(username, password) {
   const user = accountStore.get(`users.${username}`);
   return await bcrypt.compare(password, user.passwordHash);
 }
+
+function zodiac(day, month){
+  // returns the zodiac sign according to day and month ( https://coursesweb.net/ )
+  let zodiac =['', 'Capricorn', 'Aquarius', 'Pisces', 'Aries', 'Taurus', 'Gemini', 'Cancer', 'Leo', 'Virgo', 'Libra', 'Scorpio', 'Sagittarius', 'Capricorn'];
+  let last_day =['', 19, 18, 20, 20, 21, 21, 22, 22, 21, 22, 21, 20, 19];
+  return (day > last_day[month]) ? zodiac[month + 1] : zodiac[month];
+ }

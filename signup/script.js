@@ -12,12 +12,12 @@ $(function() {
     //   return o;
     // }, {});
 
-    const data = $form.serialize();
+    const data2 = $form.serialize();
     
     $.ajax({
       url: 'http://localhost:3000/account/create',
       type: 'POST',
-      data,
+      data: data2,
       withCredentials: true,
       // xhrFields: {
       //     withCredentials: true,

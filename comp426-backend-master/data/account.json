@@ -8,6 +8,9 @@
     },
     "john hancock": {
       "passwordHash": "$2a$10$BTILU0EGxjVHuXhWxd84WOQ7/esVP9XUT8mkx0GvcYdNTJL4NL9ke"
+    },
+    "dot com": {
+      "passwordHash": "$2a$10$WnkLhDqABvSQtPKT5ektCOsJFIdI3ngWQDUld3pUJd7x63.7LK2x6"
     }
   }
 }

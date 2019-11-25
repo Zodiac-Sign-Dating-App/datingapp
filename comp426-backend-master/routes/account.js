@@ -67,13 +67,16 @@ router.post('/login', async function (req, res) {
  * database.
  */
 router.post('/create', function (req, res) {
-  if (!req.body.name || !req.body.pass) {
-    res.status(401).send({msg: 'Expected a payload of name and pass.'});
+  if (!req.body.name || !req.body.pass || !req.body.bday ) {
+    res.status(401).send({msg: 'Expected a payload of name and pass and DOB.'});
     return;
   }
 
   const name = req.body.name.toLowerCase();
   const pass = req.body.pass;
+  const dob = req.body.bday;
+  const sex = req.body.gender;
+  const pref = req.body.preference;
 
 
   let user = accountStore.get(`users.${name}`);
@@ -85,11 +88,14 @@ router.post('/create', function (req, res) {
   bcrypt.hash(pass, saltRounds, (err, hash) => {
     accountStore.set(`users.${name}`, {
       passwordHash: hash,
-      data: req.body.data
+      birthday: dob,
+      gender: sex,
+      preference: pref,
+      data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});
   });
-
+  //accountStore.set(`users.${name}`, {birthday: dob, data:req.body.bday});
 });
 
 

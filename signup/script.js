@@ -24,6 +24,7 @@ $(function() {
       // },
     }).then(() => {
       $message.html('<span class="has-text-success">Success! You are now signed up.</span>');
+      location.href = ("../login/index.html");
     }).catch(() => {
       $message.html('<span class="has-text-danger">Something went wrong and you were not verified. Check your email and password and your internet connection.</span>');
     });

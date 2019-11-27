@@ -15,6 +15,14 @@
       "preference": "men",
       "age": 21,
       "sign": "Capricorn"
+    },
+    "jairo rubio": {
+      "passwordHash": "$2a$10$EbYoWCSf3BpnzsHky.erEOI9Lrbmqo8/NmhEzZ0d5jq6NgTYDkIhS",
+      "birthday": "1998-02-19",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Pisces"
     }
   }
 }

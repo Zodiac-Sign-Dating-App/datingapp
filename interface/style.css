@@ -1,0 +1,139 @@
+@font-face {
+  font-family: auch;
+  src: url(../fonts/auch.otf);
+}
+
+@font-face {
+  font-family: alexana;
+  src: url(../fonts/alexana.ttf);
+}
+
+@font-face {
+  font-family: potra;
+  src: url(../fonts/potra.ttf);
+}
+
+@font-face {
+  font-family: castela;
+  src: url(../fonts/castela.ttf);
+}
+
+.card .card-image,
+.card .card-image .image img {
+  height: 80%;
+  width: 75%;
+  display: block;
+  /* margin-left: 90px;
+  margin-right: 90px; */
+
+}
+
+body, html {
+    background-color: rgb(44, 0, 95);
+}
+
+.bodyText {
+  font-family: auch;
+}
+
+.titleText {
+  font-family: castela;
+}
+
+.headerText {
+  font-family: potra;
+}
+
+.specialText {
+  font-family: alexana;
+}
+
+.card {
+    width: 100%;
+    float: left;
+    margin: 11px;
+    height: 80%;
+}
+
+.card-image {
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.imageProfile {
+    width: 40%;
+    height: 40%;
+    
+}
+
+.profile {
+    border-radius: 60%;
+}
+
+img.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  form {
+    margin: 60px;
+    float: none;
+  }
+
+  .container {
+    display: block;
+    width: 100%;
+    
+  }
+
+  .container2 {
+    
+    display: block;
+    width: 100%;
+    
+  }
+
+  .blank {
+    float: left;
+    margin-top:40px;
+  
+    
+  }
+
+
+  @media screen and (max-width: 800px) {
+ 
+    .card .card-image,
+    .card .card-image .image img,
+    .card {
+      height: 80%;
+      width: 75%;
+      display: block;
+    margin-left: 20px;
+    margin-right: 20px;
+   
+    
+   
+  }
+
+    /* 
+...all styles specific to mobile portrait view go here
+media query for mobile portrait layout (479px or less) */
+@media only screen and (max-width: 479px) {
+
+    .card .card-image,
+    .card .card-image .image img,
+    .card {
+      height: 100%;
+      width: 110%;
+    }
+    
+    .card {
+        width: 110%;
+    }
+    }
+  }

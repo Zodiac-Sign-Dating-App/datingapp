@@ -7,6 +7,14 @@
       "preference": "women",
       "age": 21,
       "sign": "Pisces"
+    },
+    "john hancock": {
+      "passwordHash": "$2a$10$d1s6Id0SDYcaHsnvUsEMlear3ATzeyEn1p2B2q6Qzf48fX8ttVuLu",
+      "birthday": "1997-12-31",
+      "gender": "female",
+      "preference": "men",
+      "age": 21,
+      "sign": "Capricorn"
     }
   }
 }

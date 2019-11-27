@@ -1,13 +1,60 @@
 #signup {
+  /* display: flex; */
+   align-items: left;
+   justify-content: flex-start;
+  /* justify-content: center; */
+  /* height: 10px; */
+  /* background: #F7F7F7; */
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.sub {
+  align-items: left;
+  justify-content: flex-end;
+  padding-top: 170px;
+  font-family: potra;
+  font-size: 30px;
+  color:white;
+}
+
+label {
+  color: white;
+}
+html { 
+  background: url("background1.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.signButton {
+  background-color: purple;
+  border: transparent;
+  color: white;
+}
+
+.navbar {
+  padding: 10px;
+  background-color: transparent;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
-  background: #F7F7F7;
+
 }
+
+.field {
+  width: 80%;
+}
+
 #signup .signup-card {
-  background: #fff;
-  width: 24rem;
+  padding-top: 10px;
+  padding-left: 90px;
+  /* background: #fff; */
+  width: 35rem;
   box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.11);
 }
 #signup .signup-card .card-title {
@@ -19,9 +66,11 @@
   text-align: center;
   font-size: 1.2rem;
 }
-#signup .signup-card .content {
+/* #signup .signup-card .content {
   padding: 3rem 2.5rem 5rem;
-}
+} */
+
+
 #signup .signup-card #name, #signup .signup-card #pass {
   display: block;
   width: 100%;
@@ -39,7 +88,7 @@
   border-color: purple;
 }
 #signup .signup-card .checkbox {
-  color: #b5b5b5;
+  color: white;
   font-size: 0.8rem;
 }
 #signup .signup-card .checkbox span {
@@ -58,12 +107,15 @@
   color: purple;
   border-radius: 4rem;
   display: block;
-  width: 100%;
+  /* width: 0%; */
   background: transparent;
   border: 2px solid purple;
-  padding: 0.9rem 0 1.1rem;
+  /* padding: 0.9rem 0 1.1rem; */
+  margin-top: 20px;
+  padding: 12px;
   transition: color .5s, border-color .5s;
 }
+
 #signup .signup-card button:hover, #signup .signup-card button:focus {
   color: #13294B;
   border-color: #13294B;
@@ -109,3 +161,30 @@ textarea:focus,
 button:focus {
   outline: none;
 }
+.titletext {
+  font-family: castela;
+  font-size: 45px;
+  color:white;
+}
+@font-face {
+  font-family: auch;
+  src: url(../fonts/auch.otf);
+}
+
+@font-face {
+  font-family: alexana;
+  src: url(../fonts/alexana.ttf);
+}
+
+@font-face {
+  font-family: potra;
+  src: url(../fonts/potra.ttf);
+}
+
+@font-face {
+  font-family: castela;
+  
+  src: url(../fonts/castela.ttf);
+}
+
+

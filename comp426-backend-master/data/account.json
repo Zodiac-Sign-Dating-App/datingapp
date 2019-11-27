@@ -23,6 +23,14 @@
       "preference": "women",
       "age": 21,
       "sign": "Pisces"
+    },
+    "john mccain": {
+      "passwordHash": "$2a$10$JPO6SRil9qPKsAoIIOBfoef8KAw4AYqf53fPcCc5eAF3YpEDONQVW",
+      "birthday": "1998-03-18",
+      "gender": "male",
+      "preference": "both",
+      "age": 21,
+      "sign": "Pisces"
     }
   }
 }

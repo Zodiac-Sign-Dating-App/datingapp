@@ -13,7 +13,7 @@ const profileData = [{
     id: 1,
     age: "26",
     name: "Marcus",
-    img: "../images/marcus.jpeg",
+    img: "../../images/marcus.jpeg",
     color: "#b81be3",
     backgroundColor: "#000000",
     subtitle: "Aries",

@@ -1,0 +1,67 @@
+#login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    /* background: #F7F7F7; */
+  }
+  
+  html { 
+    background: url("background1.png") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  label {
+    color: white;
+  }
+ 
+  label {
+    cursor: pointer;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  button:focus {
+    outline: none;
+  }
+  
+  
+  .titletext {
+    font-family: castela;
+    font-size: 45px;
+    color:white;
+  }
+  @font-face {
+    font-family: auch;
+    src: url(../fonts/auch.otf);
+  }
+  
+  @font-face {
+    font-family: alexana;
+    src: url(../fonts/alexana.ttf);
+  }
+  
+  @font-face {
+    font-family: potra;
+    src: url(../fonts/potra.ttf);
+  }
+  
+  @font-face {
+    font-family: castela;
+    
+    src: url(../fonts/castela.ttf);
+  }
+  
+  
+  .navbar {
+    padding: 10px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+  }

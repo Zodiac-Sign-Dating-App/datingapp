@@ -77,7 +77,8 @@ router.post('/create', function (req, res) {
   const dob = req.body.bday;
   const sex = req.body.gender;
   const pref = req.body.preference;
-  
+  const firstname = req.body.name.toLowerCase().split(" ");
+
   let today = new Date();
   let birthDate= new Date(dob);
   let age = today.getFullYear() - birthDate.getFullYear();
@@ -88,6 +89,7 @@ router.post('/create', function (req, res) {
   //console.log(birthDate.getDate());
   let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
   let user = accountStore.get(`users.${name}`);
+
   if (user) {
     res.status(401).send({msg: `User '${req.body.name}' is already a registered user.`});
     return;
@@ -95,6 +97,7 @@ router.post('/create', function (req, res) {
 
   bcrypt.hash(pass, saltRounds, (err, hash) => {
     accountStore.set(`users.${name}`, {
+      first_name: firstname,  
       passwordHash: hash,
       birthday: dob,
       gender: sex,

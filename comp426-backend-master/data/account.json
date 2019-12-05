@@ -35,6 +35,15 @@
       "preference": "men",
       "age": 21,
       "sign": "Capricorn"
+    },
+    "sakari singleton": {
+      "first_name": "sakari",
+      "passwordHash": "$2a$10$gvlKp5cRzYOaC.CHPbvGWOO8AmzWCYiTDmBHaZlZc9JghHj80lMca",
+      "birthday": "1998-04-09",
+      "gender": "female",
+      "preference": "men",
+      "age": 21,
+      "sign": "Aries"
     }
   }
 }

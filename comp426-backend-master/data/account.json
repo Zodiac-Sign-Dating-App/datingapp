@@ -1,4 +1,13 @@
 {
   "users": {
+    "jairo rubio": {
+      "first_name": "jairo",
+      "passwordHash": "$2a$10$kcyNM/xsCOK5sjCp6APMVu9vuk.yUGWcpqeJxjT3HbkHE69zWakdO",
+      "birthday": "1998-02-19",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Pisces"
+    }
   }
 }

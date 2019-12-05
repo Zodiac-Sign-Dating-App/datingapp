@@ -17,6 +17,15 @@
       "preference": "men",
       "age": 21,
       "sign": "Virgo"
+    },
+    "jaylen evans": {
+      "first_name": "jaylen",
+      "passwordHash": "$2a$10$3bhW8FsbuYPs3wskifHMsuN/56VxgjEg5EZrueMEJY.VUSUtXGbeW",
+      "birthday": "1997-12-22",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Capricorn"
     }
   }
 }

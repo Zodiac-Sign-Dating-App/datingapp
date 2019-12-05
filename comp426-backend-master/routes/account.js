@@ -77,7 +77,7 @@ router.post('/create', function (req, res) {
   const dob = req.body.bday;
   const sex = req.body.gender;
   const pref = req.body.preference;
-  const firstname = req.body.name.toLowerCase().split(" ");
+  const firstname = req.body.name.toLowerCase().split(" ", 1).join("");
 
   let today = new Date();
   let birthDate= new Date(dob);

@@ -31,6 +31,38 @@
       "preference": "both",
       "age": 21,
       "sign": "Pisces"
+    },
+    "dumb ass": {
+      "first_name": [
+        "dumb",
+        "ass"
+      ],
+      "passwordHash": "$2a$10$8UfOC3xI69beNWASqbqdd.s/t7ycBGc35SUQKeIZwrl6mKi0fIvaO",
+      "birthday": "1998-02-18",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Aquarius"
+    },
+    "stupid bitch": {
+      "first_name": [
+        "stupid"
+      ],
+      "passwordHash": "$2a$10$56yUymmCs.tuxI41raxclO2L43nljVl/gMvOjnjxaXHGekkur6bti",
+      "birthday": "1998-02-18",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Aquarius"
+    },
+    "yes sir": {
+      "first_name": "yes",
+      "passwordHash": "$2a$10$XUiS11QNIbBBFobwdzM0QupolcJCqbYHd.Mf9qN4W/c8SbmOUmCl2",
+      "birthday": "1998-02-18",
+      "gender": "male",
+      "preference": "women",
+      "age": 21,
+      "sign": "Aquarius"
     }
   }
 }

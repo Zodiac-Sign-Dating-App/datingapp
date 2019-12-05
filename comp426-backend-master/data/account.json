@@ -8,6 +8,15 @@
       "preference": "women",
       "age": 21,
       "sign": "Pisces"
+    },
+    "mialique daniel": {
+      "first_name": "mialique",
+      "passwordHash": "$2a$10$OuUWpjQPYAzr9DM4ATJnKOEha.n45k4HHqiR.DmbvZckXnaCKdoZG",
+      "birthday": "1998-09-07",
+      "gender": "female",
+      "preference": "men",
+      "age": 21,
+      "sign": "Virgo"
     }
   }
 }

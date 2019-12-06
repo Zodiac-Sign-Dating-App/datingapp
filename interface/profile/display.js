@@ -15,11 +15,10 @@
 export const renderprofileCard = function(profile) {
    
     return `
-    <p class="is-4 titleText" style="color:${profile.color}; font-size: 60px; text-align: center;">Star Crossed</p>
+    <p class="is-4 titleText" style="color:${profile.color}; font-size: 60px; text-align: center;">Welcome [insert username here]</p>
     <div style="text-align: center;">
     <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
     <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Messages</a></button>
     <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
     </div>
     <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
@@ -47,6 +46,7 @@ export const renderprofileCard = function(profile) {
       <br>
       <br>
       <button <a class="button is-rounded EditButton headerText" data-id="${profile.id}">Edit Profile</a></button>
+      <button <a class="button is-rounded DeleteButton headerText" data-id="${profile.id}">Delete Profile</a></button>
     </div>
   </div>
   </div>
@@ -54,6 +54,31 @@ export const renderprofileCard = function(profile) {
 </div>`;
 
 };
+
+export const renderNavBar = function(profile) {
+
+  return `<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="index.html">
+        <h1 class="titletext">Star Crossed</h1>
+    </a>
+
+  </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="buttons">
+          
+          <a class="button is-light" href ="../../login/index.html">
+            Log Out
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>`;
+
+}
 
 
 
@@ -205,6 +230,10 @@ export const handleEditFormSubmit = function(event) {
 export const loadprofileesIntoDOM = function(profilees) {
     // Grab a jQuery reference to the root HTML element
     const $root = $('#root');
+
+    let nav = renderNavBar();
+
+    $root.append(nav);
 
     // TODO: Generate the profilees using renderprofileCard()
     //       NOTE: Copy your code from a04 for this part

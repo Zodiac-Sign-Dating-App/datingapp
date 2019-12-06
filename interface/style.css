@@ -18,6 +18,18 @@
   src: url(../fonts/castela.ttf);
 }
 
+body, html { 
+  background: url("background1.png") no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+label {
+  color: white;
+}
+
 .card .card-image,
 .card .card-image .image img {
   height: 80%;
@@ -28,12 +40,33 @@
 
 }
 
-body, html {
+/* body, html {
     background-color: rgb(44, 0, 95);
-}
+} */
 
 .bodyText {
   font-family: auch;
+}
+
+.titletext {
+  font-family: castela;
+  font-size: 45px;
+  color:white;
+}
+
+.signButton {
+  background-color: purple;
+  border: transparent;
+  color: white;
+}
+
+.navbar {
+  padding: 10px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
 }
 
 .titleText {

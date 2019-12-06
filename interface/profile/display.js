@@ -270,12 +270,18 @@ export const loadprofileesIntoDOM = function(profilees) {
     if ( uploader.files && uploader.files[0] ){
           $('#profileImage').attr('src', 
              window.URL.createObjectURL(uploader.files[0]) );
+            //  for(let i =0; i < profilees.length; i++) {
+            //   profilees[i].img = newURL;
+            //  }
     }
 }
 
 $("#imageUpload").change(function(){
     fasterPreview( this );
 });
+
+var newSRC = $("#profileImage").attr("src");
+ console.log(newSRC);
 };
 
 

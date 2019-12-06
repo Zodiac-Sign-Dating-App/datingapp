@@ -19,14 +19,16 @@ export const renderprofileCard = function(profile) {
     <div style="text-align: center;">
     <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
     <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+    <button <a href="index.html" class="button is-rounded headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
     </div>
     <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
     <div style="padding: none;">
     <div class="card" style="background-color:${profile.backgroundColor};">
   <div class="card-image">
     <figure>
-      <img class="profile center" src="${profile.img}" alt="Placeholder image">
+      <img class="profile center" id="profileImage" src="${profile.img}" alt="Placeholder image">
+      <input id="imageUpload" type="file" 
+       name="profile_photo" placeholder="Photo" required="" capture>
     </figure>
   </div>
   <div class="card-content">
@@ -59,7 +61,7 @@ export const renderNavBar = function(profile) {
 
   return `<nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="index.html">
+    <a class="navbar-item" href="profile/index.html">
         <h1 class="titletext">Star Crossed</h1>
     </a>
 
@@ -260,6 +262,20 @@ export const loadprofileesIntoDOM = function(profilees) {
     $root.on("click",".CancelButton",handleCancelButtonPress);
     // $('.CancelButton').on('click', handleCancelButtonPress);
 
+    $("#profileImage").click(function(e) {
+      $("#imageUpload").click();
+  });
+
+  function fasterPreview( uploader ) {
+    if ( uploader.files && uploader.files[0] ){
+          $('#profileImage').attr('src', 
+             window.URL.createObjectURL(uploader.files[0]) );
+    }
+}
+
+$("#imageUpload").change(function(){
+    fasterPreview( this );
+});
 };
 
 

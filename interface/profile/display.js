@@ -15,15 +15,15 @@
 export const renderprofileCard = function(profile) {
    
     return `
-    <p class="is-4 titleText" style="color:${profile.color}; font-size: 60px; text-align: center;">Welcome [insert username here]</p>
+    <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome [insert username here]</p>
     <div style="text-align: center;">
-    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
-    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-    <button <a href="index.html" class="button is-rounded headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
+    <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
     </div>
     <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
     <div style="padding: none;">
-    <div class="card" style="background-color:${profile.backgroundColor};">
+    <div class="card" style="background-color:black;">
   <div class="card-image">
     <figure>
       <img class="profile center" id="profileImage" src="${profile.img}" alt="Placeholder image">
@@ -35,16 +35,16 @@ export const renderprofileCard = function(profile) {
     <div class="media">
     
       <div class="media-content bodyText">
-        <p class="headerText is-4" style="color:${profile.color}; font-size: 50px; text-align: center;">${profile.name}</p>
+        <p class="headerText is-4" style="color:purple; font-size: 50px; text-align: center;">${profile.name}</p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Age: ${profile.age}</p>
-        <p class="subtitle is-6" style="color:white; text-align: center;"><i>"${profile.subtitle}"</i></p>
+        <p class="subtitle is-6" style="color:white; text-align: center;"><i>"${profile.dob}"</i></p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Interests: </span>${profile.interests}</p>
         
       </div>
     </div>
-<h1 class="is-4 headerText" style="color:${profile.color}; font-size: 30px;">Bio</h1>
+<h1 class="is-4 headerText" style="color:purple; font-size: 30px;">Bio</h1>
     <div class="content bodyText" style="color:white;">
-    ${profile.description}
+    ${profile.bio}
       <br>
       <br>
       <button <a class="button is-rounded EditButton headerText" data-id="${profile.id}">Edit Profile</a></button>
@@ -90,7 +90,7 @@ export const renderNavBar = function(profile) {
  *     pre-populated with the initial values of the profile.
  * @param profile  The profile object to edit (see data.js)
  */
-export const renderprofileEditForm = function(match) {
+export const renderprofileEditForm = function(profile) {
     return `
     
     <form class="profileForm specialText" data-id="${profile.id}">
@@ -119,20 +119,20 @@ export const renderprofileEditForm = function(match) {
 <div class="field">
   <label class="label headerText">Subtitle</label>
   <div class="control">
-    <input class="sub input bodyText" type="text" placeholder="Subtitle" value="${profile.subtitle}"/>
+    <input class="sub input bodyText" type="text" placeholder="Subtitle" value="${profile.dob}"/>
   </div>
 </div>
 
 <div class="field">
   <label class="label headerText">First Seen</label>
   <div class="control">
-   <input class="seen bodyText" type="date" id="start" value="${profile.int}"</input>
+   <input class="seen bodyText" type="date" id="start" value="${profile.dob}"</input>
   </div>
 </div>
 
 <div class="field">
-  <label class="label headerText">Description</label>
-<textarea class="description textarea bodyText">${profile.description}</textarea>
+  <label class="label headerText">bio</label>
+<textarea class="bio textarea bodyText">${profile.bio}</textarea>
 </div>
 
 
@@ -217,7 +217,7 @@ export const handleEditFormSubmit = function(event) {
     profile.subtitle = $par.find('.sub').val();
     profile.interests = new Date($par.find('.seen').val().replace(/-/g, '/'));
     console.log(profile.interests);
-    profile.description = $par.find('.description').val();
+    profile.bio = $par.find('.bio').val();
 
     $par.replaceWith(renderprofileCard(profile));
 };

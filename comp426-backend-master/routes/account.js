@@ -98,7 +98,7 @@ router.post('/create', function (req, res) {
   bcrypt.hash(pass, saltRounds, (err, hash) => {
     accountStore.set(`users.${name}`, { 
       passwordHash: hash,
-      dob: bday,
+      dob: dob,
       data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});

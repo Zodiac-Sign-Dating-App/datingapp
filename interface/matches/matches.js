@@ -4,7 +4,7 @@ export const matchesMain = function() {
     <section id = "header">
         <div class = "container" align = "center">
             <h2 class="">
-            Matches,
+            Your Matches
             </h2>
             <div>
             <button class = "newPost button is-small is-rounded is-dark"> New Post </button>
@@ -23,10 +23,8 @@ export const matchesMain = function() {
 };
 
 export const renderMatches = function(match) {
-    const match = $(`<div class="match" id="${match.id}"></div>`);
-
     const matchView = $(`
-    <div align="center" matchID="${match.id}" matchBody= "${match.body}" matchZodiac= "${match.zodiac}"> 
+    <div align="center" matchID="${match.id}" matchBody= "${match.bio}" matchZodiac= "${match.zodiac}"> 
         <div class = "column is-half is-offset-one-quarter">
             <div class="box">
                 <article class="media">
@@ -38,11 +36,11 @@ export const renderMatches = function(match) {
                     <div class="media-content">
                         <div class="content">
                             <p>
-                                <strong> <div class = "username"> ${match.author} </div> </strong>
+                                <strong> <div class = "username"> ${match.name} </div> </strong>
                                 <br>
-                                ${time}
+                                
                                 <br>
-                                ${match.body}
+                                ${match.bio}
                             </p>
                         </div>
                         <nav class="level is-mobile">
@@ -55,81 +53,28 @@ export const renderMatches = function(match) {
     </div>`);
 
     matchView.append($(`
-        <button class="rematchButton button is-small is-rounded is-dark">
-            rematchs
-            ${match.rematchCount}
-            <br>
-            <span class="icon is-small">
-                <i class="fas fa-rematch" aria-hidden="true"></i>
-            </span>
-        </button>`));
-
-    if (match.isMine) {
-        matchView.append($(`
-            <button class="likeButton button is-small is-rounded is-dark">
-                likes
-                ${match.likeCount} 
-                <br>
-                <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                </span>
-            </button>`));
-        matchView.append($(`<button class="editButton button is-small is-rounded is-dark">Edit</button>`));
-        matchView.append($(`<button class="deleteButton button is-small is-rounded is-dark">Delete</button>`));
-    } 
-    else {
-        if (match.isLiked) {
-        matchView.append($(`
-            <button class="unlikeButton button is-small is-rounded is-dark" type="submit">
-                unlike
-                ${match.likeCount} 
-                <br>
-                <span class="icon is-small">
-                    <i class="fas fa-heart" aria-hidden="true"></i>
-                </span>
-               </button>`));
-            }
-
-        else {
-            matchView.append($(`
-                <button class="likeButton button is-small is-rounded is-dark" type="submit">
-                    likes
-                    ${match.likeCount} 
-                    <br>
-                    <span class="icon is-small">
-                        <i class="fas fa-heart" aria-hidden="true"></i>
-                    </span>
-                </button>`));
-            }
-    }
-
-    matchView.append($(`
         <button class="replyButton button is-small is-rounded is-dark" type="submit"> 
                 reply
-                ${match.replyCount} 
+                ${match.dob} 
                 <br>
                 <span class="icon is-small">
                     <i class="fas fa-reply" aria-hidden="true"></i>
                 </span>
                 </button>`));   
-    somematch.append(matchView);
-    return somematch;
+   
+    return matchView;
 };
 
 export const loadMatches = function (matches) {
-    //foreach match in matches {
-        if(match.id != this.id) {
-            //if(match.zodiac is in this.matches) {
-                //if(match.gender is in this.like) {
-                    if(match.isLiked) {
-                        $('#matches').append(renderMatches(match));
-                    }
-                }
+    //let user = get call to get user data object
+    matches.forEach(function (match) {
+        if((user.matches).includes(match.zodiac)) {
+            if((user.like).includes(match.gender)) {
+                $('#matches').append(renderMatches(match));
             }
-
-        //}
-    //}
-//};
+        }
+    });
+};
 
 export const loadMatchesIntoDOM = function (matches) {
     let $root = $('#root');
@@ -137,6 +82,7 @@ export const loadMatchesIntoDOM = function (matches) {
     $root.append(matchesMain);
 
     loadMatches(matches);
+    /*
     $root.on('click', '.retweetButton', retweetButtonHandler);
     $root.on('click', '.deleteButton', deleteButtonHandler);
     $root.on('click', '.postButton', postButtonHandler);
@@ -149,8 +95,9 @@ export const loadMatchesIntoDOM = function (matches) {
     $root.on('click', '.unlikeButton', unlikeButtonHandler);
     $root.on('click', '.editButton', editButtonHandler);
     $root.on('click', '#retweetSubmit', retweetSubmitButtonHandler);
+    */
 };
 
 $(function () {
-    loadMatchesIntoDOM($profileData);
+    loadMatchesIntoDOM(profileData);
 });

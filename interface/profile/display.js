@@ -12,9 +12,9 @@
  * @param profile  A profile object (see data.js)
  */
 export const renderprofileCard = function(profile) {
-   
+  let user= localStorage.getItem('name'); 
   return `
-  <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${profile.name}</p>
+  <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
   <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
   <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
@@ -306,6 +306,7 @@ $("#profileImage").click(function(e) {
 /**
 * Use jQuery to execute the loadprofileesIntoDOM function after the page loads
 */
-$(function() {
+$(document).ready(function() {
+
   loadprofileesIntoDOM(profileData);
 });

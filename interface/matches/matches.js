@@ -23,6 +23,7 @@ export const matchesMain = function() {
 };
 
 export const renderMatches = function(match) {
+    let compatability = $zodiacs.find(item => item.id = user.zodiac)[match.zodiac];
     const matchView = $(`
     <div align="center" matchID="${match.id}" matchBody= "${match.bio}" matchZodiac= "${match.zodiac}"> 
         <div class = "column is-half is-offset-one-quarter">
@@ -68,9 +69,11 @@ export const renderMatches = function(match) {
 export const loadMatches = function (matches) {
     //let user = get call to get user data object
     matches.forEach(function (match) {
-        if((user.matches).includes(match.zodiac)) {
-            if((user.like).includes(match.gender)) {
-                $('#matches').append(renderMatches(match));
+        if(match.id != user.id) {
+            if((user.matches).includes(match.zodiac)) {
+                if((user.like).includes(match.gender)) {
+                    $('#matches').append(renderMatches(match));
+                }
             }
         }
     });

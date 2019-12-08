@@ -15,15 +15,16 @@
 export const renderprofileCard = function(profile) {
    
     return `
-    <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome [insert username here]</p>
+    <p class="is-4 titleText" style="color:${profile.color}; font-size: 60px; text-align: center;">Welcome [insert username here]</p>
     <div style="text-align: center;">
-    <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
-    <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-    <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
+    <button <a class="button is-rounded EditButton headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
+    <button <a href="index.html" class="button is-rounded headerText" style="color:${profile.color}; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
     </div>
+
     <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
     <div style="padding: none;">
-    <div class="card" style="background-color:black;">
+    <div class="card" style="background-color:${profile.backgroundColor};">
   <div class="card-image">
     <figure>
       <img class="profile center" id="profileImage" src="${profile.img}" alt="Placeholder image">
@@ -35,16 +36,16 @@ export const renderprofileCard = function(profile) {
     <div class="media">
     
       <div class="media-content bodyText">
-        <p class="headerText is-4" style="color:purple; font-size: 50px; text-align: center;">${profile.name}</p>
+        <p class="headerText is-4" style="color:${profile.color}; font-size: 50px; text-align: center;">${profile.name}</p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Age: ${profile.age}</p>
-        <p class="subtitle is-6" style="color:white; text-align: center;"><i>"${profile.dob}"</i></p>
+        <p class="subtitle is-6" style="color:white; text-align: center;"><i>"${profile.subtitle}"</i></p>
         <p style="color:white; text-align: center;"><span style="font-weight: bold;">Interests: </span>${profile.interests}</p>
         
       </div>
     </div>
-<h1 class="is-4 headerText" style="color:purple; font-size: 30px;">Bio</h1>
+<h1 class="is-4 headerText" style="color:${profile.color}; font-size: 30px;">Bio</h1>
     <div class="content bodyText" style="color:white;">
-    ${profile.bio}
+    ${profile.description}
       <br>
       <br>
       <button <a class="button is-rounded EditButton headerText" data-id="${profile.id}">Edit Profile</a></button>
@@ -103,36 +104,23 @@ export const renderprofileEditForm = function(profile) {
 </div>
 
 <div class="field">
-  <label class="label headerText">First Name</label>
+  <label class="label headerText">Age</label>
   <div class="control">
     <input class="first input bodyText" type="text" placeholder="profile First Name" value="${profile.age}"/>
   </div>
 </div>
 
 <div class="field">
-  <label class="label headerText">Last Name</label>
+  <label class="label headerText">Interests</label>
   <div class="control">
-    <input class="last input bodyText" type="text" placeholder="profile Last Name" value="${profile.last}"/>
+    <input class="last input bodyText" type="text" placeholder="profile Interests" value="${profile.interests}"/>
   </div>
 </div>
 
-<div class="field">
-  <label class="label headerText">Subtitle</label>
-  <div class="control">
-    <input class="sub input bodyText" type="text" placeholder="Subtitle" value="${profile.dob}"/>
-  </div>
-</div>
 
 <div class="field">
-  <label class="label headerText">First Seen</label>
-  <div class="control">
-   <input class="seen bodyText" type="date" id="start" value="${profile.dob}"</input>
-  </div>
-</div>
-
-<div class="field">
-  <label class="label headerText">bio</label>
-<textarea class="bio textarea bodyText">${profile.bio}</textarea>
+  <label class="label headerText">Bio</label>
+<textarea class="description textarea bodyText">${profile.description}</textarea>
 </div>
 
 
@@ -156,8 +144,6 @@ export const renderprofileEditForm = function(profile) {
  * @param event  The JavaScript event that is being handled
  */
 export const handleEditButtonPress = function(event) {
-    // TODO: Render the profile edit form for the clicked profile and replace the
-    //       profile's card in the DOM with their edit form instead
     let profileEditButton = $(event.target);
     let profileId = $(event.target).data('id');
     
@@ -198,26 +184,22 @@ export const handleCancelButtonPress = function(event) {
  * @param event  The JavaScript event that is being handled
  */
 export const handleEditFormSubmit = function(event) {
-    // TODO: Render the profile card using the updated field values from the
-    //       submitted form and replace the profile's edit form in the DOM with
-    //       their updated card instead
-
     let profileEditButton = $(event.target);
     let profileId = $(event.target).data('id');
     let profile = profileData.find(h => {
-        return h.id == profileId
+        return h.id == profileId;
     });
 
    
-     let $par = profileEditButton.closest('.profileForm');
+    let $par = profileEditButton.closest('.profileForm');
 
-    profile.name = $par.find('.name').val();
-    profile.age = $par.find('.first').val();
-    profile.last = $par.find('.last').val();
-    profile.subtitle = $par.find('.sub').val();
-    profile.interests = new Date($par.find('.seen').val().replace(/-/g, '/'));
-    console.log(profile.interests);
-    profile.bio = $par.find('.bio').val();
+    profile.name = current.find('.name').val();
+    profile.age = current.find('.age').val();
+    profile.last = current.find('.last').val();
+    profile.subtitle = current.find('.subtitle').val();
+    profile.interests = current.find('.interests').val();
+    profile.description = current.find('.description').val();
+
 
     $par.replaceWith(renderprofileCard(profile));
 };
@@ -232,35 +214,18 @@ export const handleEditFormSubmit = function(event) {
 export const loadprofileesIntoDOM = function(profilees) {
     // Grab a jQuery reference to the root HTML element
     const $root = $('#root');
-
-    let nav = renderNavBar();
-
-    $root.append(nav);
-
-    // TODO: Generate the profilees using renderprofileCard()
-    //       NOTE: Copy your code from a04 for this part
     let profileDOM = [];
     for(let i =0; i < profilees.length; i++) {
      profileDOM[i] = renderprofileCard(profilees[i]);
     }
-    // TODO: Append the profile cards to the $root element
-    //       NOTE: Copy your code from a04 for this part
+
+    
     $root.append(profileDOM);
-    // TODO: Use jQuery to add handleEditButtonPress() as an event handler for
-    //       clicking the edit button
     $root.on("click",".EditButton",handleEditButtonPress);
-    // $('.EditButton').on('click', handleEditButtonPress);
-
-    // TODO: Use jQuery to add handleEditFormSubmit() as an event handler for
-    //       submitting the form
     $root.on("click",".SubmitButton",handleEditFormSubmit);
-    // $('.SubmitButton').on('click', handleEditFormSubmit);
-
-
-    // TODO: Use jQuery to add handleCancelButtonPress() as an event handler for
-    //       clicking the cancel button
     $root.on("click",".CancelButton",handleCancelButtonPress);
-    // $('.CancelButton').on('click', handleCancelButtonPress);
+  
+
 
     $("#profileImage").click(function(e) {
       $("#imageUpload").click();

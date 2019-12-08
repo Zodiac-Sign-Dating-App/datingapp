@@ -19,8 +19,8 @@ const profileData = [{
     bio: "I enjoy long walks on the beach and an occasional cool glass of fruit punch.",
     interests: "skiing, cooking, Netflix & Chill",
     insta: "https://instagram.com/marcusvofficial/",
-},
-{
+}];
+const matchData = [{
     id: "brennora",
     age: "20",
     dob: "11-03-1999",

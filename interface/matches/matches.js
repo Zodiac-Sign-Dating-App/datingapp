@@ -3,8 +3,8 @@ export const matchesMain = function() {
     <div id = "root">
     <section id = "header">
         <div class = "container" align = "center">
-            <h2 class="titlehead">
-            Olivia McPhaul,
+            <h2 class="">
+            Matches,
             </h2>
             <div>
             <button class = "newPost button is-small is-rounded is-dark"> New Post </button>
@@ -116,8 +116,8 @@ export const renderMatches = function(match) {
     return somematch;
 };
 
-export const loadMatches = function () {
-    //foreach match in data.js {
+export const loadMatches = function (matches) {
+    //foreach match in matches {
         if(match.id != this.id) {
             //if(match.zodiac is in this.matches) {
                 //if(match.gender is in this.like) {
@@ -131,12 +131,12 @@ export const loadMatches = function () {
     //}
 //};
 
-export const loadMatchesIntoDOM = function () {
+export const loadMatchesIntoDOM = function (matches) {
     let $root = $('#root');
     $root.empty();
     $root.append(matchesMain);
 
-    loadMatches();
+    loadMatches(matches);
     $root.on('click', '.retweetButton', retweetButtonHandler);
     $root.on('click', '.deleteButton', deleteButtonHandler);
     $root.on('click', '.postButton', postButtonHandler);
@@ -152,5 +152,5 @@ export const loadMatchesIntoDOM = function () {
 };
 
 $(function () {
-    loadMatchesIntoDOM();
+    loadMatchesIntoDOM($profileData);
 });

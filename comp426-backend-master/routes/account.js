@@ -74,7 +74,7 @@ router.post('/create', function (req, res) {
 
   const name = req.body.name.toLowerCase();
   const pass = req.body.pass;
-  // const dob = req.body.bday;
+  const dob = req.body.bday;
   // const sex = req.body.gender;
   // const pref = req.body.preference;
   // const firstname = req.body.name.toLowerCase().split(" ", 1).join("");
@@ -98,6 +98,7 @@ router.post('/create', function (req, res) {
   bcrypt.hash(pass, saltRounds, (err, hash) => {
     accountStore.set(`users.${name}`, { 
       passwordHash: hash,
+      dob: bday,
       data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});

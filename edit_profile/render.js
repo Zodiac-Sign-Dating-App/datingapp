@@ -121,7 +121,7 @@ export const handleEditFormSubmit = function(event) {
     thiszodiac.age = current.find('.age').val();
     thiszodiac.last = current.find('.last').val();
     thiszodiac.subtitle = current.find('.subtitle').val();
-    thiszodiac.interests = new Date(current.find('.interests').val().replace(/-/g, '/'));
+    thiszodiac.interests = current.find('.interests').val();
     thiszodiac.description = current.find('.description').val();
 
     current.replaceWith(renderzodiacCard(thiszodiac));

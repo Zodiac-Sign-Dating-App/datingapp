@@ -1,14 +1,4 @@
-/**
- * Course: COMP 426
- * Assignment: a05
- *
- * This file defines data to be rendered to the page.
- */
 
-
-/**
- * Represents a list of heroic users
- */
 const profileData = [{
     id: 1,
     age: "26",
@@ -19,4 +9,88 @@ const profileData = [{
     subtitle: "Aries",
     description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
     interests: "skiing, cooking, Netflix & Chill",
-},];
+    
+},
+{
+    id: 2,
+    age: "20",
+    name: "Gaby",
+    img: "../../images/gaby.jpg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Leo",
+    matches: [sagitarius, aries, aquarius, libra],
+    description: "Just living my best life and looking for someone to match my energy",
+    interests: "travelling, hanging out with friends, and fashion",
+    insta: "https://www.instagram.com/gabybehailu/",
+},
+{
+    id: 3,
+    age: "21",
+    name: "Luis",
+    img: "../../images/luis.jpg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Leo", // should this part be in the ""
+    matches: [sagitarius, aries, aquarius, libra],
+    description: "What's good y'all. If you match you know it's gonna be a good time ",
+    interests: "soccer, movies, cooking",
+    insta: "https://www.instagram.com/lcav_17/?hl=en",
+},
+{
+    id: 4,
+    age: "26",
+    name: "Marcus",
+    img: "../../images/marcus.jpeg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Aries",
+    description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
+    interests: "skiing, cooking, Netflix & Chill",
+},
+{
+    id: 5,
+    age: "26",
+    name: "Marcus",
+    img: "../../images/marcus.jpeg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Aries",
+    description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
+    interests: "skiing, cooking, Netflix & Chill",
+},
+{
+    id: 6,
+    age: "26",
+    name: "Marcus",
+    img: "../../images/marcus.jpeg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Aries",
+    description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
+    interests: "skiing, cooking, Netflix & Chill",
+},
+{
+    id: 7,
+    age: "26",
+    name: "Marcus",
+    img: "../../images/marcus.jpeg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Aries",
+    description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
+    interests: "skiing, cooking, Netflix & Chill",
+},
+
+{
+    id: 8,
+    age: "26",
+    name: "Marcus",
+    img: "../../images/marcus.jpeg",
+    color: "purple",
+    backgroundColor: "#000000",
+    subtitle: "Aries",
+    description: "My ideal date? I pick you up in my car, and there’s candles gently licking the air on the dashboard ‘Rich, there’s candles on the dashboard’, I smile. ‘Yeah, I know.’ We take a drive, go to a restaurant, have a wonderful meal and talk about life, goals, and ideals.  As we leave, you notice my car is ablaze. ‘Rich, your car is on fire!’. ‘It’s okay – it’s not mine’ – at which point I pull out marshmallows. We cook them & eat them. Then I kiss you passionately. In front of the burning car.",
+    interests: "skiing, cooking, Netflix & Chill",
+}
+];

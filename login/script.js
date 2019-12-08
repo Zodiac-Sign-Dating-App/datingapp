@@ -31,6 +31,7 @@ $(function() {
       const name = res.name;
       localStorage.setItem('jwt', jwt);
       localStorage.setItem('name', name);
+      location.href = ("../interface/profile/index.html");
     }).catch(() => {
       $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
     });

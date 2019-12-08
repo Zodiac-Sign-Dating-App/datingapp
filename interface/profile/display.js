@@ -269,14 +269,19 @@ export const loadprofileesIntoDOM = function(profilees) {
 
 
 
-  $("#profileImage").click(function(e) {
-    $("#imageUpload").click();
-});
 
-function fasterPreview( uploader ) {
+function fasterPreview(uploader) {
   if ( uploader.files && uploader.files[0] ){
-        $('#profileImage').attr('src', 
-           window.URL.createObjectURL(uploader.files[0]) );
+    var reader = new FileReader();
+
+    reader.onload = function (x) {
+      $('#profileImage').attr('src', x.target.result);
+      // console.log(x.target.result);
+    }
+
+    reader.readAsDataURL(uploader.files[0]);
+        // $('#profileImage').attr('src', 
+        //    window.URL.createObjectURL(uploader.files[0]) );
           //  for(let i =0; i < profilees.length; i++) {
           //   profilees[i].img = newURL;
           //  }
@@ -284,11 +289,16 @@ function fasterPreview( uploader ) {
 }
 
 $("#imageUpload").change(function(){
-  fasterPreview( this );
+  fasterPreview(this);
 });
 
-var newSRC = $("#profileImage").attr("src");
-console.log(newSRC);
+
+$("#profileImage").click(function(e) {
+  $("#imageUpload").click();
+});
+
+
+
 };
 
 

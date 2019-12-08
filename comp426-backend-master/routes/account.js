@@ -74,20 +74,20 @@ router.post('/create', function (req, res) {
 
   const name = req.body.name.toLowerCase();
   const pass = req.body.pass;
-  const dob = req.body.bday;
-  const sex = req.body.gender;
-  const pref = req.body.preference;
-  const firstname = req.body.name.toLowerCase().split(" ", 1).join("");
+  // const dob = req.body.bday;
+  // const sex = req.body.gender;
+  // const pref = req.body.preference;
+  // const firstname = req.body.name.toLowerCase().split(" ", 1).join("");
 
-  let today = new Date();
-  let birthDate= new Date(dob);
-  let age = today.getFullYear() - birthDate.getFullYear();
-  let m = today.getMonth() - birthDate.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-      age--;
-  }
-  //console.log(birthDate.getDate());
-  let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
+  // let today = new Date();
+  // let birthDate= new Date(dob);
+  // let age = today.getFullYear() - birthDate.getFullYear();
+  // let m = today.getMonth() - birthDate.getMonth();
+  // if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+  //     age--;
+  // }
+  // //console.log(birthDate.getDate());
+  // let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
   let user = accountStore.get(`users.${name}`);
 
   if (user) {
@@ -96,14 +96,8 @@ router.post('/create', function (req, res) {
   }
 
   bcrypt.hash(pass, saltRounds, (err, hash) => {
-    accountStore.set(`users.${name}`, {
-      first_name: firstname,  
+    accountStore.set(`users.${name}`, { 
       passwordHash: hash,
-      birthday: dob,
-      gender: sex,
-      preference: pref,
-      age: age,
-      sign: sign,
       data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});

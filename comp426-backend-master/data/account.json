@@ -56,6 +56,10 @@
     "alfonso": {
       "passwordHash": "$2a$10$hP9oGJCcM9u61m7lETUWyu4uC4Fx7hFAQCFF687MyNkSCCxoRGGOe",
       "dob": "1998-02-19"
+    },
+    "jackson": {
+      "passwordHash": "$2a$10$idIfdE4K9o4EttgcA8oAbOZqnJRx2X5LwkZBrpHpnsir30ofJra2.",
+      "dob": "1998-02-19"
     }
   }
 }

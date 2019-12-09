@@ -275,7 +275,9 @@ export const getCurrProfileData = async function(){
       Authorization: `Bearer ${token}`
     },
   });
-  profile = result.data.result;
+  if(result.data.result.name !== undefined){
+    profile = result.data.result;
+  };
   // console.log(profile);
   // console.log(profile)
   localStorage.setItem('name', profile.name);

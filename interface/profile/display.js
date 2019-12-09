@@ -1,3 +1,5 @@
+
+
 /**
  * Course: COMP 426
  * Assignment: Final Project
@@ -12,21 +14,21 @@
  * @param profile  A profile object (see data.js)
  */
 export const renderprofileCard = function(profile) {
-  let user= localStorage.getItem('name'); 
+  let user= localStorage.getItem('user'); 
   return `
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
-  <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
-  <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-  <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+  <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
+  <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
+  <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" >My Profile</a></button>
   </div>
 
-  <div class="container cardid" style="margin:0 auto;" data-id="${profile.id}">
+  <div class="container cardid" style="margin:0 auto;">
   <div style="padding: none;">
   <div class="card" style="background-color:black;">
 <div class="card-image">
   <figure>
-    <img class="profile center" id="profileImage" src="${profile.img}" alt="Placeholder image">
+    <img class="profile center" id="profileImage" src="../../images/blankpic.png" alt="../../images/blankpic.png">
     <input id="imageUpload" type="file" 
      name="profile_photo" placeholder="Photo" required="" capture>
   </figure>
@@ -42,10 +44,8 @@ export const renderprofileCard = function(profile) {
       <p style="color:white; text-align: center;"><span style="font-weight: bold;">Age: ${profile.age}
       </p>
       <br>
-      <p class="subtitle is-6" style="color:white; text-align: center;"> Date of Birth: ${profile.dob} 
-      </p>
 
-      <p class="subtitle is-6" style="color:white; text-align: center;"> Zodiac: ${profile.zodiac}
+      <p class="subtitle is-6" style="color:white; text-align: center;"> Zodiac: ${profile.sign}
       </p>
 
       <p style="color:white; text-align: center;"><span style="font-weight: bold;">Interests: ${profile.interests}
@@ -59,8 +59,8 @@ export const renderprofileCard = function(profile) {
 
     <br>
     <br>
-    <button <a class="button is-rounded EditButton headerText" data-id="${profile.id}">Edit Profile</a></button>
-    <button <a class="button is-rounded DeleteButton headerText" data-id="${profile.id}">Delete Profile</a></button>
+    <button <a class="button is-rounded EditButton headerText" >Edit Profile</a></button>
+    <button <a class="button is-rounded DeleteButton headerText" >Delete Profile</a></button>
 
 </div>
 </div>
@@ -105,10 +105,16 @@ return `<nav class="navbar" role="navigation" aria-label="main navigation">
 
 
 
-export const renderprofileEditForm = function(profile) {
+export const renderprofileEditForm = function() {
+  let profile ={};
+  profile.name =localStorage.getItem('name');
+  profile.age = localStorage.getItem('age');
+  profile.sign =localStorage.getItem('sign');
+  profile.interests =localStorage.getItem('interests');
+  profile.bio = localStorage.getItem('bio');
   return `
   
-  <form class="profileForm specialText" data-id="${profile.id}">
+  <form class="profileForm specialText">
   
   <div class="field" id="profileFormID">
   
@@ -127,12 +133,9 @@ export const renderprofileEditForm = function(profile) {
       <input class="name input bodyText" type="text" id="age" value="${profile.age}"/>
       </p>
       <br>
-      <p class="subtitle is-6" style="color:white; text-align: left;"> Date of Birth
-      <input class="name input bodyText" type="text" value="${profile.dob}"/> 
-      </p>
 
       <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac:
-      <input class="name input bodyText" type="text" id="sign" value="${profile.zodiac}"/> 
+      <input class="name input bodyText" type="text" id="sign" value="${profile.sign}"/> 
       </p>
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
@@ -152,10 +155,10 @@ export const renderprofileEditForm = function(profile) {
 
 <div class="field is-grouped">
 <div class="control">
-  <button class="button is-danger CancelButton specialText" type="cancel" data-id="${profile.id}">Cancel</button>
+  <button class="button is-danger CancelButton specialText" type="cancel">Cancel</button>
 </div>
 <div class="control">
-  <button class="button is-dark SubmitButton specialText" type="submit" data-id="${profile.id}">Save</button>
+  <button class="button is-dark SubmitButton specialText" type="submit">Save</button>
 </div>
 </div> 
 
@@ -172,12 +175,13 @@ export const renderprofileEditForm = function(profile) {
 * @param event  The JavaScript event that is being handled
 */
 export const handleEditButtonPress = function(event) {
+  let profile ={};
+  profile.name =localStorage.getItem('name');
+  profile.age = localStorage.getItem('age');
+  profile.sign =localStorage.getItem('sign');
+  profile.interests =localStorage.getItem('interests');
+  profile.bio = localStorage.getItem('bio');
   let profileEditButton = $(event.target);
-  let profileId = $(event.target).data('id');
-  
-  let profile = profileData.find(profile => {
-      return profile.id == profileId
-  });
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
 };
@@ -192,16 +196,17 @@ export const handleEditButtonPress = function(event) {
 export const handleCancelButtonPress = function(event) {
   // TODO: Render the profile card for the clicked profile and replace the
   //       profile's edit form in the DOM with their card instead
-  
+  let profile ={};
+  profile.name =localStorage.getItem('name');
+  profile.age = localStorage.getItem('age');
+  profile.sign =localStorage.getItem('sign');
+  profile.interests =localStorage.getItem('interests');
+  profile.bio = localStorage.getItem('bio');
   let profileCancelButton = $(event.target);
-  let profileId = $(event.target).data('id');
   
-  let profile = profileData.find(profile => {
-      return profile.id == profileId
-  });
-  console.log(profile);
   let parOld = profileCancelButton.closest('.profileForm');
   parOld.replaceWith(renderprofileCard(profile));
+  reload();
 };
 
 
@@ -214,28 +219,19 @@ export const handleCancelButtonPress = function(event) {
 export const handleEditFormSubmit = async function(event) {
   event.preventDefault();
   let profileEditButton = $(event.target);
-  let profileId = $(event.target).data('id');
-  let profile = profileData.find(h => {
-      return h.id == profileId;
-  });
 
  
     let $par = profileEditButton.closest('.profileForm');
     let token= localStorage.getItem('jwt');
 
-    let res = {};
-    profile.name = $par.find('.name').val();
-    profile.age = $par.find('.first').val();
-    profile.interests = $par.find('.interests').val();
-    profile.bio = $par.find('.bio').val();
-    profile.zodiac = $par.find('.zodiac').val();
+
     
     let name = $('#name').val();
     let age = $('#age').val();
     let interests = $('#interests').val();
     let bio = $('#bio').val();
     let sign = $('#sign').val();
-
+    let profile ={}
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
@@ -249,28 +245,67 @@ export const handleEditFormSubmit = async function(event) {
       headers: {
         Authorization: `Bearer ${token}`
       },
+      success: function(data){
+        profile = data;
+      },
     });
 
 
 
     $par.replaceWith(renderprofileCard(profile));
+    reload();
 };
 
+export const getCurrProfileData = async function(){
+  let user= localStorage.getItem('name'); 
+  let token = localStorage.getItem('jwt');
+  let profile ={};
+  profile.name= "Enter your name!"; 
+  profile.age = "Enter your age!";
+  profile.sign ="What's your sign?"; 
+  profile.interests = "What are your interests?";
+  profile.bio ="Tell us about yourself!";
+  const result = await axios({
+    url: 'http://localhost:3000/user/profile',
+    method: 'get',
+    // xhrFields: {
+    //     withCredentials: true,
+    // },
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  });
+  profile = result.data.result;
+  // console.log(profile);
+  // console.log(profile)
+  localStorage.setItem('name', profile.name);
+  localStorage.setItem('age', profile.age);
+  localStorage.setItem('sign', profile.sign);
+  localStorage.setItem('interests', profile.interests);
+  localStorage.setItem('bio', profile.bio);
+}
 
-
+export function reload() {
+  getCurrProfileData();
+}
 /**
 * Given an array of profile objects, this function converts the data into HTML,
 *     loads it into the DOM, and adds event handlers.
 * @param  profilees  An array of profile objects to load (see data.js)
 */
-export const loadprofileesIntoDOM = function(profilees) {
+export const loadprofileesIntoDOM = function() {
   // Grab a jQuery reference to the root HTML element
+  getCurrProfileData();
+  let profile ={};
+  profile.name =localStorage.getItem('name');
+  profile.age = localStorage.getItem('age');
+  profile.sign =localStorage.getItem('sign');
+  profile.interests =localStorage.getItem('interests');
+  profile.bio = localStorage.getItem('bio');
+  
+  // console.log(profile);
   const $root = $('#root');
-  let profileDOM = [];
-  for(let i =0; i < profilees.length; i++) {
-   profileDOM[i] = renderprofileCard(profilees[i]);
-  }
-
+  let profileDOM = renderprofileCard(profile);
   
   $root.append(profileDOM);
   $root.on("click",".EditButton",handleEditButtonPress);
@@ -318,5 +353,5 @@ $("#profileImage").click(function(e) {
 */
 $(document).ready(function() {
 
-  loadprofileesIntoDOM(profileData);
+  loadprofileesIntoDOM();
 });

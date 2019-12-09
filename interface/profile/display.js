@@ -312,6 +312,7 @@ export const loadprofileesIntoDOM = function() {
   profile.name =sessionStorage.getItem('name');
   profile.age = sessionStorage.getItem('age');
   profile.sign =sessionStorage.getItem('sign');
+  profile.img = sessionStorage.getItem('newPic');
   profile.interests =sessionStorage.getItem('interests');
   profile.bio = sessionStorage.getItem('bio');
   
@@ -346,8 +347,8 @@ function fasterPreview(uploader) {
             g );
             
              console.log(g);
-             localStorage.setItem('newPic', g);
-             let newPic = localStorage.getItem('newPic');
+             sessionStorage.setItem('newPic', g);
+             let newPic = sessionStorage.getItem('newPic');
 
     }
 }

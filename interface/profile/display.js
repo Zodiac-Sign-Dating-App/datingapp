@@ -15,6 +15,9 @@
  */
 export const renderprofileCard = function(profile) {
   let user= sessionStorage.getItem('user'); 
+  let picture = sessionStorage.getItem('newPic');
+  let picSRC = picture.toString();
+  console.log(picSRC);
   return `
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
@@ -28,7 +31,7 @@ export const renderprofileCard = function(profile) {
   <div class="card" style="background-color:black;">
 <div class="card-image">
   <figure>
-    <img class="profile center" id="profileImage" src="../../images/blankpic.png" alt="../../images/blankpic.png">
+    <img class="profile center" id="profileImage" src=${picSRC} alt="../../images/blankpic.png">
     <input id="imageUpload" type="file" 
      name="profile_photo" placeholder="Photo" required="" capture>
   </figure>

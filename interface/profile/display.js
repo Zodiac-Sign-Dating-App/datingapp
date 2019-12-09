@@ -321,7 +321,6 @@ export const loadprofileesIntoDOM = function() {
   let nav = renderNavBar();
 
     $root.append(nav);
-    
   let profileDOM = renderprofileCard(profile);
   
   $root.append(profileDOM);

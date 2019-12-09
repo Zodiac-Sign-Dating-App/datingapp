@@ -133,10 +133,16 @@ export const renderprofileEditForm = function() {
       <input class="name input bodyText" type="text" id="age" value="${profile.age}"/>
       </p>
       <br>
+     
 
-      <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac:
-      <input class="name input bodyText" type="text" id="sign" value="${profile.sign}"/> 
-      </p>
+      <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
+      <form autocomplete="off" action="/action_page.php">
+      <div class="autocomplete" style="width:300px;">
+        <input id="myInput" type="text" name="myDorm" placeholder="Search for Your Zodiac Sign">
+      </div>
+    </form>
+
+    <br>
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
       <input class="name input bodyText" type="text" id="interests" value="${profile.interests}"/> 
@@ -184,6 +190,9 @@ export const handleEditButtonPress = function(event) {
   let profileEditButton = $(event.target);
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
+
+  var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
+autocomplete(document.getElementById("myInput"), zods);
 };
 
 
@@ -345,9 +354,114 @@ $("#profileImage").click(function(e) {
   $("#imageUpload").click();
 });
 
-
-
 };
+
+
+// The autocomplete function takes an array of options for autocompletion,
+// and compares it to the user input
+function autocomplete(inp, arr) {
+  
+  // listen for someone typing in an input
+  var currentFocus;
+  inp.addEventListener("input", function (e) {
+    var a, b, i, val = this.value;
+
+  // close list everytime user clicks input field so value doesn't repeat
+  closeAllLists();
+
+   // if there isnt a text field, return back to nothing
+  if (!val) { return false; }
+  // assign value to before list begins
+    currentFocus = -1;
+     // Creative a div element that will act as the list of matching options 
+    a = document.createElement("DIV");
+   
+    a.setAttribute("id", this.id + "autocomplete-list");
+    a.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(a);
+
+    for (i = 0; i < arr.length; i++) {
+       // For each item in array, check if the item starts with the same letters as the user input 
+      
+       if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+          // if they match, create a div for the option and bold the first letter
+          b = document.createElement("DIV");
+          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          b.innerHTML += arr[i].substr(val.length);
+          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+
+          // when user clicks an option, replace input value with value of the list option
+          b.addEventListener("click", function (e) {
+          inp.value = this.getElementsByTagName("input")[0].value;
+          closeAllLists();
+        });
+          a.appendChild(b);
+      }
+    }
+  });
+  
+  // function to close the autocomplete list
+  function closeAllLists(option) {
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (option != x[i] && option != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+
+    // arrow key function
+   inp.addEventListener("keydown", function (e) {
+    var x = document.getElementById(this.id + "autocomplete-list");
+    if (x) x = x.getElementsByTagName("div");
+    if (e.keyCode == 40) { // down key press
+        currentFocus++;
+        addActive(x);
+
+    } else if (e.keyCode == 38) { // up key press
+            currentFocus--;
+            addActive(x);
+    } else if (e.keyCode == 13) { // enter key press
+            e.preventDefault();
+            if (currentFocus > -1) {
+        if (x) x[currentFocus].click();
+      }
+    }
+  });
+
+  
+  function addActive(x) {
+    /*a function to classify an item as "active":*/
+    if (!x) return false;
+    /*start by removing the "active" class on all items:*/
+    removeActive(x);
+    if (currentFocus >= x.length) currentFocus = 0;
+    if (currentFocus < 0) currentFocus = (x.length - 1);
+    /*add class "autocomplete-active":*/
+    x[currentFocus].classList.add("autocomplete-active");
+  }
+  function removeActive(x) {
+    /*a function to remove the "active" class from all autocomplete items:*/
+    for (var i = 0; i < x.length; i++) {
+      x[i].classList.remove("autocomplete-active");
+    }
+  }
+  function closeAllLists(option) {
+    /*close all autocomplete lists in the document,
+    except the one passed as an argument:*/
+    var x = document.getElementsByClassName("autocomplete-items");
+    for (var i = 0; i < x.length; i++) {
+      if (option != x[i] && option != inp) {
+        x[i].parentNode.removeChild(x[i]);
+      }
+    }
+  }
+  /*execute a function when someone clicks in the document:*/
+  document.addEventListener("click", function (e) {
+    closeAllLists(e.target);
+  });
+
+}
 
 
 

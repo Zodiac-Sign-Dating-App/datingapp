@@ -15,9 +15,9 @@
  */
 export const renderprofileCard = function(profile) {
   let user= sessionStorage.getItem('user'); 
+  
   let picture = sessionStorage.getItem('newPic');
-  let picSRC = picture.toString();
-  console.log(picSRC);
+  
   return `
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
@@ -31,7 +31,7 @@ export const renderprofileCard = function(profile) {
   <div class="card" style="background-color:black;">
 <div class="card-image">
   <figure>
-    <img class="profile center" id="profileImage" src=${picSRC} alt="../../images/blankpic.png">
+    <img class="profile center" id="profileImage" src="../../images/blankpic.png" alt="../../images/blankpic.png">
     <input id="imageUpload" type="file" 
      name="profile_photo" placeholder="Photo" required="" capture>
   </figure>
@@ -71,6 +71,13 @@ export const renderprofileCard = function(profile) {
 </div>`;
 
 };
+
+ function blobToFile(theBlob, fileName){
+  //A Blob() is almost a File() - it's just missing the two properties below which we will add
+  theBlob.lastModifiedDate = new Date();
+  theBlob.name = fileName;
+  return theBlob;
+}
 
 export const renderNavBar = function(profile) {
 
@@ -293,11 +300,24 @@ export const getCurrProfileData = async function(){
   profile = result.data.result;
   // console.log(profile);
   // console.log(profile)
+
+  let p = "blob:http://127.0.0.1:5502/de462a70-94b7-41c9-a5e3-5ebb91a276b3";
+
+  
   sessionStorage.setItem('name', profile.name);
   sessionStorage.setItem('age', profile.age);
   sessionStorage.setItem('sign', profile.sign);
   sessionStorage.setItem('interests', profile.interests);
   sessionStorage.setItem('bio', profile.bio);
+  sessionStorage.setItem('newPic', p);
+
+  let picture = sessionStorage.getItem('newPic');
+
+  // let legit = blobToFile(picture, "profile-img.png");
+  var file = new File([picture], "new-pic.png", {lastModified: 1534584790000});
+  console.log(file.name);
+
+  sessionStorage.setItem('newPic', file.name);
 }
 
 export function reload() {

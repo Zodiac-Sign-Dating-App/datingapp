@@ -1,23 +1,27 @@
 export const matchesMain = function() {
     return $(`
     <div id = "root">
-    <section id = "header">
-        <div class = "container" align = "center">
-            <h2 class="">
-            Your Matches
-            </h2>
-            <div>
-            <button class = "newPost button is-small is-rounded is-dark"> New Post </button>
-            <button class = "refresh button is-small is-rounded is-dark"> Refresh </button>
+        <div style="text-align: center;">
+            <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
+            <button <a href = "index.html" class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
+            <button <a class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
+        </div>
+        <section id = "header">
+            <div class = "container" align = "center">
+                <p class="headerText">
+                    Matches
+                </p>
+
+                <div class = "specialText">
+                    Your star crossed matches can't wait to meet you!
+                </div>
             </div>
-        </div>
+        </section>
 
-    </section>
-
-    <section id = "matchList">
-        <div id = "matches">
-        </div>
-    </section>
+        <section id = "matchList">
+            <div id = "matches">
+            </div>
+        </section>
     </div>
     `);
 };
@@ -25,49 +29,47 @@ export const matchesMain = function() {
 export const renderMatches = function(match) {
     let compatability = $zodiacs.find(item => item.id = user.zodiac)[match.zodiac];
     const matchView = $(`
-    <div align="center" matchID="${match.id}" matchBody= "${match.bio}" matchZodiac= "${match.zodiac}"> 
-        <div class = "column is-half is-offset-one-quarter">
-            <div class="box">
-                <article class="media">
-                    <div class="media-left">
-                        <figure class="image is-64x64">
-                            <img src="https://cdn3.iconfinder.com/data/icons/social-icons-5/607/Twitterbird.png" alt="TwitterBird">
-                        </figure>
-                    </div>
-                    <div class="media-content">
-                        <div class="content">
-                            <p>
-                                <strong> <div class = "username"> ${match.name} </div> </strong>
-                                <br>
-                                
-                                <br>
-                                ${match.bio}
-                            </p>
-                        </div>
-                        <nav class="level is-mobile">
-                            <div class="level-left"></div>
-                        </nav>
-                    </div>
-                </article>
-            </div>
+    <div align="center"> 
+        <div class = "media headerText" align = "center>
+            <img src = ${match.img} alt = "pic">
+            ${match.name}
         </div>
-    </div>`);
 
-    matchView.append($(`
-        <button class="replyButton button is-small is-rounded is-dark" type="submit"> 
-                reply
-                ${match.dob} 
-                <br>
-                <span class="icon is-small">
-                    <i class="fas fa-reply" aria-hidden="true"></i>
-                </span>
-                </button>`));   
+        <div class="box">
+            <article class="media">
+                <div class="media" align = "center">
+                    <figure class="image is-64x64">
+                        <img src= ${match.img} alt="match zodiac">
+                    </figure>
+
+                    <p class = "headerText">Compatability Score: <span class = "titleText" style = "color: red"> ${compatability} <span></p>
+                </div>
+
+                <div class="media-content">
+                    <div class="content">
+                        <p class = "headerText">
+                            Age : <span class = "bodyText"> ${match.age} </span>
+                            Interests : <span class = "bodyText"> ${match.interests} </span>
+                            Bio : <span class = "bodyText"> ${match.bio} </span>
+                        </p>
+                    </div>
+                </div>
+
+                <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-dark specialText" type="submit"> 
+                    <figure class="image is-64x64 icon">
+                        <img src = "../instagram.jpg" alt = "insatgram">
+                    </figure>
+                    Link with me on Instagram
+                </a></button>
+            </article>
+        </div>
+    </div>`); 
    
     return matchView;
 };
 
 export const loadMatches = function (matches) {
-    //let user = get call to get user data object
+    let user = profileData.find(item => item.id = "brennora");
     matches.forEach(function (match) {
         if(match.id != user.id) {
             if((user.matches).includes(match.zodiac)) {

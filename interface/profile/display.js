@@ -114,24 +114,17 @@ export const renderprofileEditForm = function(profile) {
   
   <div style="padding: none;">
   <div class="card" style="background-color:black;">
-<div class="card-image">
-  <figure>
-    <img class="profile center" id="profileImage" src="${profile.img}" alt="Placeholder image">
-    <input id="imageUpload" type="file" 
-     name="profile_photo" placeholder="Photo" required="" capture>
-  </figure>
-</div>
 <div class="card-content">
   <div class="media">
   
     <div class="media-content bodyText">
 
       <p class="headerText is-4" style="color:purple; font-size: 45px; text-align: left;">Name:
-      <input class="name input bodyText" type="text" value="${profile.name}"/>
+      <input class="name input bodyText" type="text" id="name" value="${profile.name}"/>
       </p>
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Age: 
-      <input class="name input bodyText" type="text" value="${profile.age}"/>
+      <input class="name input bodyText" type="text" id="age" value="${profile.age}"/>
       </p>
       <br>
       <p class="subtitle is-6" style="color:white; text-align: left;"> Date of Birth
@@ -139,15 +132,15 @@ export const renderprofileEditForm = function(profile) {
       </p>
 
       <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac:
-      <input class="name input bodyText" type="text" value="${profile.zodiac}"/> 
+      <input class="name input bodyText" type="text" id="sign" value="${profile.zodiac}"/> 
       </p>
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
-      <input class="name input bodyText" type="text" value="${profile.interests}"/> 
+      <input class="name input bodyText" type="text" id="interests" value="${profile.interests}"/> 
       </p>
       <br>
       <p style="color:white; text-align: left;"><span style="font-weight: bold;"> Bio:
-      <input class="name input bodyText" type="text" value="${profile.bio}"/> 
+      <input class="name input bodyText" type="text" id="bio" value="${profile.bio}"/> 
       </p>
 
     </div>
@@ -218,7 +211,8 @@ export const handleCancelButtonPress = function(event) {
 *     button for a particular profile.
 * @param event  The JavaScript event that is being handled
 */
-export const handleEditFormSubmit = function(event) {
+export const handleEditFormSubmit = async function(event) {
+  event.preventDefault();
   let profileEditButton = $(event.target);
   let profileId = $(event.target).data('id');
   let profile = profileData.find(h => {
@@ -226,24 +220,40 @@ export const handleEditFormSubmit = function(event) {
   });
 
  
-  let $par = profileEditButton.closest('.profileForm');
+    let $par = profileEditButton.closest('.profileForm');
+    let token= localStorage.getItem('jwt');
 
-  profile.name = current.find('.name').val();
-  profile.age = current.find('.age').val();
-  profile.last = current.find('.last').val();
-  profile.subtitle = current.find('.subtitle').val();
-  profile.interests = current.find('.interests').val();
-  profile.description = current.find('.description').val();
+    let res = {};
+    profile.name = $par.find('.name').val();
+    profile.age = $par.find('.first').val();
+    profile.interests = $par.find('.interests').val();
+    profile.bio = $par.find('.bio').val();
+    profile.zodiac = $par.find('.zodiac').val();
+    
+    let name = $('#name').val();
+    let age = $('#age').val();
+    let interests = $('#interests').val();
+    let bio = $('#bio').val();
+    let sign = $('#sign').val();
 
-  profile.name = $par.find('.name').val();
-  profile.age = $par.find('.first').val();
-  profile.last = $par.find('.last').val();
-  profile.subtitle = $par.find('.sub').val();
-  profile.interests = new Date($par.find('.seen').val().replace(/-/g, '/'));
-  console.log(profile.interests);
-  profile.bio = $par.find('.bio').val();
+    const result = await axios({
+      url: 'http://localhost:3000/user/profile',
+      method: 'POST',
+      data: {
+        "data":{"name": `${name}`, "age": `${age}`, "interests": `${interests}`, "bio": `${bio}`, "sign": `${sign}`},
+        "type": "write"
+      },
+      // xhrFields: {
+      //     withCredentials: true,
+      // },
+      headers: {
+        Authorization: `Bearer ${token}`
+      },
+    });
 
-  $par.replaceWith(renderprofileCard(profile));
+
+
+    $par.replaceWith(renderprofileCard(profile));
 };
 
 

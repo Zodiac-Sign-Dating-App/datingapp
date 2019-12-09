@@ -138,7 +138,7 @@ export const renderprofileEditForm = function() {
       <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
       <form autocomplete="off" action="/action_page.php">
       <div class="autocomplete" style="width:300px;">
-        <input id="myInput" type="text" name="myDorm" placeholder="Search for Your Zodiac Sign">
+        <input id="myInput" class="zodiacSign" type="text" name="myDorm" placeholder="Search for Your Zodiac Sign">
       </div>
     </form>
 
@@ -239,7 +239,7 @@ export const handleEditFormSubmit = async function(event) {
     let age = $('#age').val();
     let interests = $('#interests').val();
     let bio = $('#bio').val();
-    let sign = $('#sign').val();
+    let sign = $('.zodiacSign').val();
     let profile ={}
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
@@ -394,6 +394,8 @@ function autocomplete(inp, arr) {
           b.addEventListener("click", function (e) {
           inp.value = this.getElementsByTagName("input")[0].value;
           closeAllLists();
+          console.log(inp.value);
+          sessionStorage.setItem('sign', inp.value);
         });
           a.appendChild(b);
       }

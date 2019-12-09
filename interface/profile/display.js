@@ -14,7 +14,7 @@
  * @param profile  A profile object (see data.js)
  */
 export const renderprofileCard = function(profile) {
-  let user= localStorage.getItem('user'); 
+  let user= sessionStorage.getItem('user'); 
   return `
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
@@ -107,11 +107,11 @@ return `<nav class="navbar" role="navigation" aria-label="main navigation">
 
 export const renderprofileEditForm = function() {
   let profile ={};
-  profile.name =localStorage.getItem('name');
-  profile.age = localStorage.getItem('age');
-  profile.sign =localStorage.getItem('sign');
-  profile.interests =localStorage.getItem('interests');
-  profile.bio = localStorage.getItem('bio');
+  profile.name =sessionStorage.getItem('name');
+  profile.age = sessionStorage.getItem('age');
+  profile.sign =sessionStorage.getItem('sign');
+  profile.interests =sessionStorage.getItem('interests');
+  profile.bio = sessionStorage.getItem('bio');
   return `
   
   <form class="profileForm specialText">
@@ -176,11 +176,11 @@ export const renderprofileEditForm = function() {
 */
 export const handleEditButtonPress = function(event) {
   let profile ={};
-  profile.name =localStorage.getItem('name');
-  profile.age = localStorage.getItem('age');
-  profile.sign =localStorage.getItem('sign');
-  profile.interests =localStorage.getItem('interests');
-  profile.bio = localStorage.getItem('bio');
+  profile.name =sessionStorage.getItem('name');
+  profile.age = sessionStorage.getItem('age');
+  profile.sign =sessionStorage.getItem('sign');
+  profile.interests =sessionStorage.getItem('interests');
+  profile.bio = sessionStorage.getItem('bio');
   let profileEditButton = $(event.target);
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
@@ -197,11 +197,11 @@ export const handleCancelButtonPress = function(event) {
   // TODO: Render the profile card for the clicked profile and replace the
   //       profile's edit form in the DOM with their card instead
   let profile ={};
-  profile.name =localStorage.getItem('name');
-  profile.age = localStorage.getItem('age');
-  profile.sign =localStorage.getItem('sign');
-  profile.interests =localStorage.getItem('interests');
-  profile.bio = localStorage.getItem('bio');
+  profile.name =sessionStorage.getItem('name');
+  profile.age = sessionStorage.getItem('age');
+  profile.sign =sessionStorage.getItem('sign');
+  profile.interests =sessionStorage.getItem('interests');
+  profile.bio = sessionStorage.getItem('bio');
   let profileCancelButton = $(event.target);
   
   let parOld = profileCancelButton.closest('.profileForm');
@@ -222,7 +222,7 @@ export const handleEditFormSubmit = async function(event) {
 
  
     let $par = profileEditButton.closest('.profileForm');
-    let token= localStorage.getItem('jwt');
+    let token= sessionStorage.getItem('jwt');
 
 
     
@@ -257,8 +257,8 @@ export const handleEditFormSubmit = async function(event) {
 };
 
 export const getCurrProfileData = async function(){
-  let user= localStorage.getItem('name'); 
-  let token = localStorage.getItem('jwt');
+  let user= sessionStorage.getItem('name'); 
+  let token = sessionStorage.getItem('jwt');
   let profile ={};
   profile.name= "Enter your name!"; 
   profile.age = "Enter your age!";
@@ -275,16 +275,17 @@ export const getCurrProfileData = async function(){
       Authorization: `Bearer ${token}`
     },
   });
-  if(result.data.result.name !== undefined){
-    profile = result.data.result;
-  };
+  // if(result.data.result.name !== undefined){
+  //   profile = result.data.result;
+  // };
+  profile = result.data.result;
   // console.log(profile);
   // console.log(profile)
-  localStorage.setItem('name', profile.name);
-  localStorage.setItem('age', profile.age);
-  localStorage.setItem('sign', profile.sign);
-  localStorage.setItem('interests', profile.interests);
-  localStorage.setItem('bio', profile.bio);
+  sessionStorage.setItem('name', profile.name);
+  sessionStorage.setItem('age', profile.age);
+  sessionStorage.setItem('sign', profile.sign);
+  sessionStorage.setItem('interests', profile.interests);
+  sessionStorage.setItem('bio', profile.bio);
 }
 
 export function reload() {
@@ -299,11 +300,11 @@ export const loadprofileesIntoDOM = function() {
   // Grab a jQuery reference to the root HTML element
   getCurrProfileData();
   let profile ={};
-  profile.name =localStorage.getItem('name');
-  profile.age = localStorage.getItem('age');
-  profile.sign =localStorage.getItem('sign');
-  profile.interests =localStorage.getItem('interests');
-  profile.bio = localStorage.getItem('bio');
+  profile.name =sessionStorage.getItem('name');
+  profile.age = sessionStorage.getItem('age');
+  profile.sign =sessionStorage.getItem('sign');
+  profile.interests =sessionStorage.getItem('interests');
+  profile.bio = sessionStorage.getItem('bio');
   
   // console.log(profile);
   const $root = $('#root');

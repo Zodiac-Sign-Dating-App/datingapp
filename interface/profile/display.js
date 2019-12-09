@@ -317,6 +317,11 @@ export const loadprofileesIntoDOM = function() {
   
   // console.log(profile);
   const $root = $('#root');
+
+  let nav = renderNavBar();
+
+    $root.append(nav);
+    
   let profileDOM = renderprofileCard(profile);
   
   $root.append(profileDOM);

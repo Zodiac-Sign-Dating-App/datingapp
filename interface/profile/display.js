@@ -311,13 +311,20 @@ export const getCurrProfileData = async function(){
   sessionStorage.setItem('bio', profile.bio);
   sessionStorage.setItem('newPic', p);
 
-  let picture = sessionStorage.getItem('newPic');
+//   let picture = sessionStorage.getItem('newPic');
 
-  // let legit = blobToFile(picture, "profile-img.png");
-  var file = new File([picture], "new-pic.png", {lastModified: 1534584790000});
-  console.log(file.name);
+//   let typedArrayToURL = (typedArray, mimeType) => {
+//     return URL.createObjectURL(picture, {type: mimeType});
+//   }
 
-  sessionStorage.setItem('newPic', file.name);
+//   let url = typedArrayToURL(picture, "text/plain");
+
+// let link = document.createElement("a");
+// link.href = url;
+
+//   // let legit = blobToFile(picture, "profile-img.png");
+//   var file = new File([picture], "new-pic.png", {lastModified: 1534584790000});
+//   console.log(url);
 }
 
 export function reload() {

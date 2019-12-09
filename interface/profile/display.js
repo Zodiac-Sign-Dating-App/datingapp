@@ -332,21 +332,24 @@ export const loadprofileesIntoDOM = function() {
 
 
 function fasterPreview(uploader) {
-  if ( uploader.files && uploader.files[0] ){
-    var reader = new FileReader();
+    if ( uploader.files && uploader.files[0] ){
+      // var reader = new FileReader();
+  
+      // reader.onload = function (x) {
+      //   $('#profileImage').attr('src', x.target.result);
+      //   // console.log(x.target.result);
+      // }
+  
+      // reader.readAsDataURL(uploader.files[0]);
+      let g = window.URL.createObjectURL(uploader.files[0]);
+          $('#profileImage').attr('src', 
+            g );
+            
+             console.log(g);
+             localStorage.setItem('newPic', g);
+             let newPic = localStorage.getItem('newPic');
 
-    reader.onload = function (x) {
-      $('#profileImage').attr('src', x.target.result);
-      // console.log(x.target.result);
     }
-
-    reader.readAsDataURL(uploader.files[0]);
-        // $('#profileImage').attr('src', 
-        //    window.URL.createObjectURL(uploader.files[0]) );
-          //  for(let i =0; i < profilees.length; i++) {
-          //   profilees[i].img = newURL;
-          //  }
-  }
 }
 
 $("#imageUpload").change(function(){

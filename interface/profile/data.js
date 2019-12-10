@@ -177,17 +177,224 @@ const matchData = [{
 {
     id: "zoe",
     age: "22",
-    dob: "12-01-1988",
+    dob: "07-25-1999",
     gender: "female",
     like: ["male"],
-    zodiac: "sagittarius",
+    zodiac: "leo",
     matches: ["gemini", "sagittarius", "aries", "leo", "libra", "aquarius"],
     name: "Zoe Kravitz",
     img: "../../images/zoe.png",
     bio: "TRIGGA",
     interests: "cooking, painting, drinking wine",
     insta: "https://www.instagram.com/zoeisabellakravitz/",
-},/*
+},
+
+{
+    id: "gaby",
+    age: "20",
+    dob: "07-25-1999",
+    gender: "female",
+    like: ["male"],
+    zodiac: "leo",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "libra"],
+    name: "Gabrella Behailu",
+    img: "../../images/gaby.JPG",
+    bio: "HML if you have a cute dog",
+    interests: "YouTube, Hanging with Friends, Photography",
+    insta: "https://www.instagram.com/gabybehailu/",
+},
+
+{
+    id: "joe",
+    age: "30",
+    dob: "08-19-1989",
+    gender: "male",
+    like: ["female"],
+    zodiac: "leo",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "libra"],
+    name: "Joe Jonas",
+    img: "../../images/joe.jpg",
+    bio: "Always down for an adventure",
+    interests: "Cooking, Hanging with Friends, Singing",
+    insta: "https://www.instagram.com/joejonas/",
+},
+
+{
+    id: "luis",
+    age: "20",
+    dob: "05-08-1999",
+    gender: "male",
+    like: ["female"],
+    zodiac: "taurus",
+    matches: ["taurus", "capricorn", "scorpio", "cancer", "virgo", "pisces"],
+    name: "Luis Amaya-Villa",
+    img: "../../images/luis.JPG",
+    bio: "Put me onto to some new music",
+    interests: "Soccer, Concerts, Movie Dates",
+    insta: "https://www.instagram.com/lcav_17/",
+},
+
+{
+    id: "sabrina",
+    age: "20",
+    dob: "05-11-1999",
+    gender: "female",
+    like: ["female", "male"],
+    zodiac: "taurus",
+    matches: ["taurus", "capricorn", "scorpio", "cancer", "virgo", "pisces"],
+    name: "Sabrina Carpenter",
+    img: "../../images/sabrina.JPG",
+    bio: "Needs me a Suga Daddy",
+    interests: "Travelling, Hiking, Beach Trips",
+    insta: "https://www.instagram.com/sabrinacarpenter/",
+},
+
+{
+    id: "austin",
+    age: "27",
+    dob: "05-20-1992",
+    gender: "male",
+    like: ["female"],
+    zodiac: "taurus",
+    matches: ["taurus", "capricorn", "scorpio", "cancer", "virgo", "pisces"],
+    name: "Austin McBroom",
+    img: "../../images/austin.jpeg",
+    bio: "looking for a good time",
+    interests: "Instagram, Basketball, Travel",
+    insta: "https://www.instagram.com/sabrinacarpenter/",
+},
+
+{
+    id: "jussie",
+    age: "37",
+    dob: "06-21-1982",
+    gender: "male",
+    like: ["female", "male"],
+    zodiac: "gemini",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Jusssie Smollett",
+    img: "../../images/jussie.jpg",
+    bio: "Here to meet friends",
+    interests: "Singing, Drawing, Travelling",
+    insta: "https://www.instagram.com/jussiesmollett/",
+},
+
+{
+    id: "nia",
+    age: "18",
+    dob: "06-20-2001",
+    gender: "female",
+    like: ["male"],
+    zodiac: "gemini",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Nia Sioux",
+    img: "../../images/nia.jpg",
+    bio: "One day at a time",
+    interests: "Dancing, Singing, Good Food",
+    insta: "https://www.instagram.com/niasioux/",
+},
+
+
+{
+    id: "tylar",
+    age: "19",
+    dob: "02-01-2000",
+    gender: "female",
+    like: ["male"],
+    zodiac: "aquarius",
+    matches: ["gemini", "sagittarius", "leo", "aquarius", "leo", "libra"],
+    name: "Tylar Watson",
+    img: "../../images/tylar.JPG",
+    bio: "Here for a good time and long time",
+    interests: "Read books, Concerts, Fashion",
+    insta: "https://www.instagram.com/welcometoty/",
+},
+
+{
+    id: "harry",
+    age: "25",
+    dob: "02-01-1994",
+    gender: "male",
+    like: ["female"],
+    zodiac: "aquarius",
+    matches: ["gemini", "sagittarius", "leo", "aquarius", "leo", "libra"],
+    name: "Harry Styles",
+    img: "../../images/harry.jpeg",
+    bio: "Looking for a girl to bring home to mum",
+    interests: "Scones & Tea, Concerts, Poetry",
+    insta: "https://www.instagram.com/harrystyles/",
+},
+
+{
+    id: "cristiano",
+    age: "34",
+    dob: "02-05-1994",
+    gender: "male",
+    like: ["female"],
+    zodiac: "aquarius",
+    matches: ["gemini", "sagittarius", "leo", "aquarius", "leo", "libra"],
+    name: "Cristiano Ronaldo",
+    img: "../../images/cristiano.jpeg",
+    bio: "Let's go on an adevnture",
+    interests: "Soccer, Family , God",
+    insta: "https://www.instagram.com/cristiano/",
+},
+
+
+{
+    id: "jaden",
+    age: "21",
+    dob: "07-08-1998",
+    gender: "male",
+    like: ["female"],
+    zodiac: "cancer",
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
+    name: "Jaden Smith",
+    img: "../../images/jaden.jpg",
+    bio: "Authentically Me",
+    interests: "Acting, Rap, Family",
+    insta: "https://www.instagram.com/c.syresmith/",
+},
+
+{
+    id: "selena",
+    age: "27",
+    dob: "07-22-1992",
+    gender: "female",
+    like: ["male"],
+    zodiac: "cancer",
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
+    name: "Selena Gomez",
+    img: "../../images/selena.jpg",
+    bio: "She creates everything",
+    interests: "hanging with friends, music, travelling",
+    insta: "https://www.instagram.com/selenagomez/",
+},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 {
     id: null,
     age: "20",

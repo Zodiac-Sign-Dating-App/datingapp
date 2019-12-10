@@ -176,24 +176,18 @@ const matchData = [{
 },
 {
     id: "zoe",
-<<<<<<< HEAD
-    age: "22",
-    dob: "07-25-1999",
-=======
     age: "31",
     dob: "12-01-1988",
->>>>>>> cb84891306c19dc47c48e49f3e2cb21daa7da8d2
     gender: "female",
     like: ["male"],
-    zodiac: "leo",
+    zodiac: "sagittarius",
     matches: ["gemini", "sagittarius", "aries", "leo", "libra", "aquarius"],
     name: "Zoe Kravitz",
     img: "../../images/zoe.png",
-    bio: "TRIGGA",
+    bio: "Im here for a good time.",
     interests: "cooking, painting, drinking wine",
     insta: "https://www.instagram.com/zoeisabellakravitz/",
 },
-<<<<<<< HEAD
 
 {
     id: "gaby",
@@ -377,60 +371,38 @@ const matchData = [{
     insta: "https://www.instagram.com/selenagomez/",
 },
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-=======
 {
     id: "cameron",
-    age: "21",
-    dob: "09-26-1998",
+    age: "271",
+    dob: "11-26-1998",
     gender: "female",
     like: ["male"],
     zodiac: "libra",
     matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
     name: "Cameron Ulmer",
     img: "../../images/cameron.png",
-    bio: "Live. Laugh. Love.",
-    interests: "cooking, painting, drinking wine",
-    insta: "https://www.instagram.com/camulmer_/",
+    bio: "Girls just wanna have fun!",
+    interests: "hanging with friends, music, travelling",
+    insta: "https://www.instagram.com/selenagomez/",
 },
+
 {
-    id: "zac",
-    age: "32",
-    dob: "10-18-1987",
-    gender: "male",
-    like: ["female"],
-    zodiac: "libra",
-    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
-    name: "Zac Efron",
-    img: "../../images/zac.png",
-    bio: "17 again I guess",
-    interests: "cooking, painting, drinking wine",
-    insta: "https://www.instagram.com/zacefron/",
-},/*
->>>>>>> cb84891306c19dc47c48e49f3e2cb21daa7da8d2
+    id: "selena",
+    age: "27",
+    dob: "07-22-1992",
+    gender: "female",
+    like: ["male"],
+    zodiac: "cancer",
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
+    name: "Selena Gomez",
+    img: "../../images/selena.jpg",
+    bio: "She creates everything",
+    interests: "hanging with friends, music, travelling",
+    insta: "https://www.instagram.com/selenagomez/",
+},
+
+
+/*
 {
     id: null,
     age: "20",

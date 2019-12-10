@@ -1,29 +1,3 @@
 {
-  "alfonso": {
-    "profile": {
-      "name": "Jairo",
-      "age": "21",
-      "interests": "Anime, Porn",
-      "bio": "I'm the fucking shit",
-      "sign": "Pisces"
-    }
-  },
-  "jackson": {
-    "profile": {
-      "name": "Jackson",
-      "age": "21",
-      "interests": "a  lot",
-      "bio": "I am me",
-      "sign": "Pisces"
-    }
-  },
-  "olivia mcphaul": {
-    "profile": {
-      "name": "Olivia McPhaul",
-      "age": "21",
-      "interests": "Swimming, bowling, writing",
-      "bio": "You can't be scared your entire life",
-      "sign": "Sagg"
-    }
-  }
+
 }

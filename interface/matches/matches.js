@@ -1,6 +1,6 @@
 export const matchesMain = function() {
-    return $(`
-    <div id = "root">
+    return `
+    <div>
         <div style="text-align: center;">
             <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
             <button <a href = "index.html" class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
@@ -18,12 +18,10 @@ export const matchesMain = function() {
             </div>
         </section>
 
-        <section id = "matchList">
-            <div id = "matches">
-            </div>
-        </section>
-    </div>
-    `);
+        
+        <div id = "matches">
+        </div>
+    </div>`;
 };
 
 export const renderMatches = function(match, user) {
@@ -110,6 +108,31 @@ export const renderMatches = function(match, user) {
     return matchView;
 };
 
+export const renderNavBar = function(profile) {
+
+    return `<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="profile/index.html">
+          <h1 class="titletext">Star Crossed</h1>
+      </a>
+    
+    </div>
+    
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="buttons">
+            
+            <a class="button is-light" href ="../../login/index.html">
+              Log Out
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    </nav>`;
+    
+    }
+
 export const loadMatches = function (matches) {
     let user = profileData.find(item => item.id = "brennora");
     matches.forEach(function (match) {
@@ -124,25 +147,15 @@ export const loadMatches = function (matches) {
 };
 
 export const loadMatchesIntoDOM = function (matches) {
-    let $root = $('#root');
-    $root.empty();
-    $root.append(matchesMain);
+    const $root = $('#root');
+
+    let nav = renderNavBar();
+
+    $root.append(nav);
+    $root.append(matchesMain());
 
     loadMatches(matches);
-    /*
-    $root.on('click', '.retweetButton', retweetButtonHandler);
-    $root.on('click', '.deleteButton', deleteButtonHandler);
-    $root.on('click', '.postButton', postButtonHandler);
-    $root.on('click', '.refreshButton', reloadButtonHandler);
-    $root.on('click', '#editSubmit', editSubmitButtonHandler);
-    $root.on('click', '#postSubmit', submitButtonHandler);
-    $root.on('click', '.replyButton', replyButtonHandler)
-    $root.on('click', '.replySubmit', replySubmitButtonHandler)
-    $root.on('click', '.likeButton', likeButtonHandler);
-    $root.on('click', '.unlikeButton', unlikeButtonHandler);
-    $root.on('click', '.editButton', editButtonHandler);
-    $root.on('click', '#retweetSubmit', retweetSubmitButtonHandler);
-    */
+    
 };
 
 $(function () {

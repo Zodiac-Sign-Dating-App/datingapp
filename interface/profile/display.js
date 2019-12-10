@@ -19,6 +19,7 @@ export const renderprofileCard = function(profile) {
   let picture = sessionStorage.getItem('newPic');
   
   return `
+  <div class="yourProfile">
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
   <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
@@ -63,8 +64,9 @@ export const renderprofileCard = function(profile) {
     <br>
     <br>
     <button <a class="button is-rounded EditButton headerText" >Edit Profile</a></button>
-    <button <a class="button is-rounded DeleteButton headerText" >Delete Profile</a></button>
+    <button <a class="button is-rounded CancelProfileButton headerText" >Delete Profile</a></button>
 
+</div>
 </div>
 </div>
 </div>
@@ -187,6 +189,41 @@ export const renderprofileEditForm = function() {
 };
 
 
+
+
+export const renderDeletedProfilePage = function() {
+  let user= sessionStorage.getItem('user'); 
+  
+  sessionStorage.setItem('jwt', " ");
+  
+  return `
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">${user}, we hate to see you leave!</p>
+  `;
+
+};
+
+
+
+export const renderDeletedProfilePageERROR = function() {
+  let user= sessionStorage.getItem('user'); 
+  
+  return `
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <p class="is-4 titleText" style="color:red; font-size: 60px; text-align: center;">${user}, something went wrong! You're account wasn't deleted. Please log in to try again.</p>
+  `;
+
+};
+
+
 /**
 * Handles the JavaScript event representing a user clicking on the "edit"
 *     button for a particular profile.
@@ -252,12 +289,13 @@ export const handleEditFormSubmit = async function(event) {
     let interests = $('#interests').val();
     let bio = $('#bio').val();
     let sign = $('.zodiacSign').val();
+    let picture = "blob:http://127.0.0.1:5503/9a469cb8-67f7-4c23-b753-f35eebfa145d";
     let profile ={}
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name}`, "age": `${age}`, "interests": `${interests}`, "bio": `${bio}`, "sign": `${sign}`},
+        "data":{"name": `${name}`, "age": `${age}`, "interests": `${interests}`, "profilePic": `${picture}`, "bio": `${bio}`, "sign": `${sign}`},
         "type": "write"
       },
       // xhrFields: {
@@ -276,6 +314,41 @@ export const handleEditFormSubmit = async function(event) {
     $par.replaceWith(renderprofileCard(profile));
     reload();
 };
+
+
+/**
+* Handles the JavaScript event representing a user clicking on the "delete profile"
+*     button for a particular profile.
+* @param event  The JavaScript event that is being handled
+*/
+export const handleDeleteProfileButton = async function(event) {
+  event.preventDefault();
+  event.stopPropagation();
+        event.stopImmediatePropagation();
+  let profileDeleteButton = $(event.target);
+  sessionStorage.setItem('jwt', " ");
+
+    let $par = profileDeleteButton.closest('.yourProfile');
+    let user = sessionStorage.getItem('user');
+    
+
+    const result = await axios({
+      url: 'http://localhost:3000/account/'+user,
+      method: 'DELETE',
+    }).then(() => {
+      
+      $par.replaceWith(renderDeletedProfilePage());
+      location.href = ("../../signup/index.html");
+    }).catch(() => {
+      
+      $par.replaceWith(renderDeletedProfilePageERROR());
+    });
+
+  
+$par.replaceWith(renderDeletedProfilePage());
+
+};
+
 
 export const getCurrProfileData = async function(){
   let user= sessionStorage.getItem('name'); 
@@ -303,7 +376,7 @@ export const getCurrProfileData = async function(){
   // console.log(profile);
   // console.log(profile)
 
-  let p = "blob:http://127.0.0.1:5502/de462a70-94b7-41c9-a5e3-5ebb91a276b3";
+  // let p = "blob:http://127.0.0.1:5502/de462a70-94b7-41c9-a5e3-5ebb91a276b3";
 
   
   sessionStorage.setItem('name', profile.name);
@@ -311,7 +384,7 @@ export const getCurrProfileData = async function(){
   sessionStorage.setItem('sign', profile.sign);
   sessionStorage.setItem('interests', profile.interests);
   sessionStorage.setItem('bio', profile.bio);
-  sessionStorage.setItem('newPic', p);
+  sessionStorage.setItem('newPic', profile.profilePic);
 
 //   let picture = sessionStorage.getItem('newPic');
 
@@ -360,6 +433,7 @@ export const loadprofileesIntoDOM = function() {
   $root.on("click",".EditButton",handleEditButtonPress);
   $root.on("click",".SubmitButton",handleEditFormSubmit);
   $root.on("click",".CancelButton",handleCancelButtonPress);
+  $root.on("click",".CancelProfileButton",handleDeleteProfileButton);
 
 
 

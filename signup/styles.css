@@ -11,10 +11,17 @@
   display: flex;
 }
 
+.logo {
+  margin-top: 100px;
+  height: 200px;
+  width: 200px;
+}
+
 .sub {
   align-items: left;
   justify-content: flex-end;
   padding-top: 170px;
+  padding-left: 20px;
   font-family: potra;
   font-size: 30px;
   color:white;

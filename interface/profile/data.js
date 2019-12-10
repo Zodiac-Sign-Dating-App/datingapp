@@ -176,8 +176,13 @@ const matchData = [{
 },
 {
     id: "zoe",
+<<<<<<< HEAD
     age: "22",
     dob: "07-25-1999",
+=======
+    age: "31",
+    dob: "12-01-1988",
+>>>>>>> cb84891306c19dc47c48e49f3e2cb21daa7da8d2
     gender: "female",
     like: ["male"],
     zodiac: "leo",
@@ -188,6 +193,7 @@ const matchData = [{
     interests: "cooking, painting, drinking wine",
     insta: "https://www.instagram.com/zoeisabellakravitz/",
 },
+<<<<<<< HEAD
 
 {
     id: "gaby",
@@ -395,6 +401,36 @@ const matchData = [{
 
 
 /*
+=======
+{
+    id: "cameron",
+    age: "21",
+    dob: "09-26-1998",
+    gender: "female",
+    like: ["male"],
+    zodiac: "libra",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Cameron Ulmer",
+    img: "../../images/cameron.png",
+    bio: "Live. Laugh. Love.",
+    interests: "cooking, painting, drinking wine",
+    insta: "https://www.instagram.com/camulmer_/",
+},
+{
+    id: "zac",
+    age: "32",
+    dob: "10-18-1987",
+    gender: "male",
+    like: ["female"],
+    zodiac: "libra",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Zac Efron",
+    img: "../../images/zac.png",
+    bio: "17 again I guess",
+    interests: "cooking, painting, drinking wine",
+    insta: "https://www.instagram.com/zacefron/",
+},/*
+>>>>>>> cb84891306c19dc47c48e49f3e2cb21daa7da8d2
 {
     id: null,
     age: "20",

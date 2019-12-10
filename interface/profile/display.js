@@ -31,7 +31,7 @@ export const renderprofileCard = function(profile) {
   <div class="card" style="background-color:black;">
 <div class="card-image">
   <figure>
-    <img class="profile center" id="profileImage" src="../../images/blankpic.png" alt="../../images/blankpic.png">
+    <img class="profile center" id="profileImage" src="../../images/logo.png" alt="../../images/blankpic.png">
     <input id="imageUpload" type="file" 
      name="profile_photo" placeholder="Photo" required="" capture>
   </figure>

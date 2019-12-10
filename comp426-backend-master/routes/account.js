@@ -79,15 +79,15 @@ router.post('/create', function (req, res) {
   // const pref = req.body.preference;
   // const firstname = req.body.name.toLowerCase().split(" ", 1).join("");
 
-  // let today = new Date();
-  // let birthDate= new Date(dob);
-  // let age = today.getFullYear() - birthDate.getFullYear();
-  // let m = today.getMonth() - birthDate.getMonth();
-  // if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-  //     age--;
-  // }
-  // //console.log(birthDate.getDate());
-  // let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
+  let today = new Date();
+  let birthDate= new Date(dob);
+  let age = today.getFullYear() - birthDate.getFullYear();
+  let m = today.getMonth() - birthDate.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+      age--;
+  }
+  //console.log(birthDate.getDate());
+  let sign = zodiac(birthDate.getDate()+1,  birthDate.getMonth()+1);  
   let user = accountStore.get(`users.${name}`);
 
   if (user) {
@@ -99,6 +99,8 @@ router.post('/create', function (req, res) {
     accountStore.set(`users.${name}`, { 
       passwordHash: hash,
       dob: dob,
+      age: age,
+      sign: sign,
       data: req.body.data, 
     });
     res.send({data: userFilter(accountStore.get(`users.${name}`)), status: 'Successfully made account'});

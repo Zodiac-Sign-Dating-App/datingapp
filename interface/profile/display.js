@@ -17,6 +17,12 @@ export const renderprofileCard = function(profile) {
   let user= sessionStorage.getItem('user'); 
   
   let picture = sessionStorage.getItem('newPic');
+  let quote = "Reload for your quote!"
+  let author = "Reload!"
+  if(sessionStorage.getItem('quote') !== null){
+  quote = sessionStorage.getItem('quote');}
+  if(sessionStorage.getItem('author') !== null){
+    author = sessionStorage.getItem('author');}
   
   return `
   <div class="container cardid" style="margin:0 auto;">
@@ -61,12 +67,13 @@ export const renderprofileCard = function(profile) {
       <br>
       <p style="color:white; text-align: center;"><span style="font-weight: bold;"> Bio: ${profile.bio}
       </p>
-
+      <br>
+      <br>
+      <p class="subtitle is-6" style="color:white; text-align: center;"> Random quote of the minute: "${quote}" - ${author} 
+    </p>
     </div>
   </div>
 
-    <br>
-    <br>
     <button <a class="button is-rounded EditButton headerText" >Edit Profile</a></button>
     <button <a class="button is-rounded CancelProfileButton headerText" >Delete Profile</a></button>
 
@@ -532,6 +539,21 @@ function autocomplete(inp, arr) {
 * Use jQuery to execute the loadprofileesIntoDOM function after the page loads
 */
 $(document).ready(function() {
-
+  randomQuote();
   loadprofileesIntoDOM();
 });
+
+
+export const randomQuote  = async function(){
+  let res = {author: " ", quote: " "};
+  const result = await axios({
+    url: 'http://quotes.stormconsultancy.co.uk/random.json',
+    method: 'get',
+  });
+  console.log(result.data);
+  res.author =result.data.author;
+  res.quote = result.data.quote;
+  sessionStorage.setItem('quote', res.quote);
+  sessionStorage.setItem('author', res.author);
+
+}

@@ -23,11 +23,24 @@ const second = function(){
         sessionStorage.setItem('age', res.user.age);
         sessionStorage.setItem('sign', res.user.sign);
         third();
+        // randomQuote();
       }).catch(() => {
         $message.html('<span class="has-text-danger">Something went wrong and you were not verified. Check your email and password and your internet connection.</span>');
       });
       
 };  
+const randomQuote  = async function(){
+  let res = {author: " ", quote: " "};
+  const result = await axios({
+    url: 'http://quotes.stormconsultancy.co.uk/random.json',
+    method: 'get',
+  });
+  console.log(result.data);
+  res.author =result.data.author;
+  res.quote = result.data.quote;
+  return res;
+
+}
 
 const third = async function(){
   let token = sessionStorage.getItem('jwt');

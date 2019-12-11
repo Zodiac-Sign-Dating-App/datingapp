@@ -221,11 +221,13 @@ export const renderDeletedProfilePageERROR = function() {
 */
 export const handleEditButtonPress = function(event) {
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?"};
   if(sessionStorage.getItem('name') !== null){
   profile.name =sessionStorage.getItem('name');}
   if(sessionStorage.getItem('interests') !== null){
   profile.interests =sessionStorage.getItem('interests');}
+  if(sessionStorage.getItem('animal') !== null){
+    profile.name =sessionStorage.getItem('animal');}
   if(sessionStorage.getItem('bio') !== null){
   profile.bio = sessionStorage.getItem('bio');}
   let profileEditButton = $(event.target);

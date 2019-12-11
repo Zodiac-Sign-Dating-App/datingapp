@@ -43,6 +43,7 @@ const third = async function(){
   
   profile = result.data.result;
   sessionStorage.setItem('name', profile.name);
+  sessionStorage.setItem('animal', profile.animal);
   sessionStorage.setItem('interests', profile.interests);
   sessionStorage.setItem('bio', profile.bio);
   location.href = ("../interface/profile/index.html");

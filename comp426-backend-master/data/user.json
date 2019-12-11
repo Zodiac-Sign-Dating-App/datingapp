@@ -42,5 +42,13 @@
       "interests": "sdnfksjnfkjsnlksd",
       "bio": "sdfnlsdnfknasdkfn"
     }
+  },
+  "angelica": {
+    "profile": {
+      "name": "Ang",
+      "interests": "Myself",
+      "bio": "I am me",
+      "animal": "Dragon"
+    }
   }
 }

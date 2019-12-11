@@ -1,3 +1,10 @@
 {
- 
+  "users": {
+    "jairo": {
+      "passwordHash": "$2a$10$ldNRwBgu9nEXW7Xb9wpKYOy9z3lS5XFB7Oc9xgAb2xWUkaGWnicCy",
+      "dob": "1998-02-19",
+      "age": 21,
+      "sign": "Pisces"
+    }
+  }
 }

@@ -117,13 +117,7 @@ return `<nav class="navbar" role="navigation" aria-label="main navigation">
 
 
 
-export const renderprofileEditForm = function() {
-  let profile ={};
-  profile.name =sessionStorage.getItem('name');
-  profile.age = sessionStorage.getItem('age');
-  profile.sign =sessionStorage.getItem('sign');
-  profile.interests =sessionStorage.getItem('interests');
-  profile.bio = sessionStorage.getItem('bio');
+export const renderprofileEditForm = function(profile) {
   return `
   
   <form class="profileForm specialText">
@@ -140,22 +134,6 @@ export const renderprofileEditForm = function() {
       <p class="headerText is-4" style="color:purple; font-size: 45px; text-align: left;">Name:
       <input class="name input bodyText" type="text" id="name" value="${profile.name}"/>
       </p>
-
-      <p style="color:white; text-align: left;"><span style="font-weight: bold;">Age: 
-      <input class="name input bodyText" type="text" id="age" value="${profile.age}"/>
-      </p>
-      <br>
-     
-
-      <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
-      <form autocomplete="off" action="/action_page.php">
-      <div class="autocomplete" style="width:300px;">
-        <input id="myInput" class="zodiacSign" autocomplete="off" type="text" name="myDorm" placeholder="Search for Your Zodiac Sign">
-      </div>
-    </form>
-
-    <br>
-    <br>
     <br>
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
@@ -230,18 +208,20 @@ export const renderDeletedProfilePageERROR = function() {
 * @param event  The JavaScript event that is being handled
 */
 export const handleEditButtonPress = function(event) {
-  let profile ={};
-  profile.name =sessionStorage.getItem('name');
-  profile.age = sessionStorage.getItem('age');
-  profile.sign =sessionStorage.getItem('sign');
-  profile.interests =sessionStorage.getItem('interests');
-  profile.bio = sessionStorage.getItem('bio');
+  let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  if(sessionStorage.getItem('name') !== null){
+  profile.name =sessionStorage.getItem('name');}
+  if(sessionStorage.getItem('interests') !== null){
+  profile.interests =sessionStorage.getItem('interests');}
+  if(sessionStorage.getItem('bio') !== null){
+  profile.bio = sessionStorage.getItem('bio');}
   let profileEditButton = $(event.target);
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
 
-  var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
-autocomplete(document.getElementById("myInput"), zods);
+//   var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
+// autocomplete(document.getElementById("myInput"), zods);
 };
 
 
@@ -254,17 +234,18 @@ autocomplete(document.getElementById("myInput"), zods);
 export const handleCancelButtonPress = function(event) {
   // TODO: Render the profile card for the clicked profile and replace the
   //       profile's edit form in the DOM with their card instead
-  let profile ={};
-  profile.name =sessionStorage.getItem('name');
-  profile.age = sessionStorage.getItem('age');
-  profile.sign =sessionStorage.getItem('sign');
-  profile.interests =sessionStorage.getItem('interests');
-  profile.bio = sessionStorage.getItem('bio');
+  let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  if(sessionStorage.getItem('name') !== null){
+  profile.name =sessionStorage.getItem('name');}
+  if(sessionStorage.getItem('interests') !== null){
+  profile.interests =sessionStorage.getItem('interests');}
+  if(sessionStorage.getItem('bio') !== null){
+  profile.bio = sessionStorage.getItem('bio');}
   let profileCancelButton = $(event.target);
   
   let parOld = profileCancelButton.closest('.profileForm');
   parOld.replaceWith(renderprofileCard(profile));
-  reload();
 };
 
 
@@ -284,35 +265,28 @@ export const handleEditFormSubmit = async function(event) {
 
 
     
-    let name = $('#name').val();
-    let age = $('#age').val();
-    let interests = $('#interests').val();
-    let bio = $('#bio').val();
-    let sign = $('.zodiacSign').val();
-    let picture = "blob:http://127.0.0.1:5503/9a469cb8-67f7-4c23-b753-f35eebfa145d";
-    let profile ={}
+    let name1 = $('#name').val();
+    let interests1 = $('#interests').val();
+    let bio1 = $('#bio').val();
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name}`, "age": `${age}`, "interests": `${interests}`, "profilePic": `${picture}`, "bio": `${bio}`, "sign": `${sign}`},
+        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`},
         "type": "write"
       },
-      // xhrFields: {
-      //     withCredentials: true,
-      // },
       headers: {
         Authorization: `Bearer ${token}`
       },
-      success: function(data){
-        profile = data;
-      },
     });
 
+    let profile ={name: name1, interests: interests1,
+    bio: bio1, age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+    sessionStorage.setItem('name', profile.name);
+    sessionStorage.setItem('interests', profile.interests);
+    sessionStorage.setItem('bio', profile.bio);
 
-
-    $par.replaceWith(renderprofileCard(profile));
-    reload();
+    $par.replaceWith(renderprofileCard(profile))
 };
 
 
@@ -350,61 +324,7 @@ $par.replaceWith(renderDeletedProfilePage());
 };
 
 
-export const getCurrProfileData = async function(){
-  let user= sessionStorage.getItem('name'); 
-  let token = sessionStorage.getItem('jwt');
-  let profile ={};
-  profile.name= "Enter your name!"; 
-  profile.age = "Enter your age!";
-  profile.sign ="What's your sign?"; 
-  profile.interests = "What are your interests?";
-  profile.bio ="Tell us about yourself!";
-  const result = await axios({
-    url: 'http://localhost:3000/user/profile',
-    method: 'get',
-    // xhrFields: {
-    //     withCredentials: true,
-    // },
-    headers: {
-      Authorization: `Bearer ${token}`
-    },
-  });
-  // if(result.data.result.name !== undefined){
-  //   profile = result.data.result;
-  // };
-  profile = result.data.result;
-  // console.log(profile);
-  // console.log(profile)
 
-  // let p = "blob:http://127.0.0.1:5502/de462a70-94b7-41c9-a5e3-5ebb91a276b3";
-
-  
-  sessionStorage.setItem('name', profile.name);
-  sessionStorage.setItem('age', profile.age);
-  sessionStorage.setItem('sign', profile.sign);
-  sessionStorage.setItem('interests', profile.interests);
-  sessionStorage.setItem('bio', profile.bio);
-  sessionStorage.setItem('newPic', profile.profilePic);
-
-//   let picture = sessionStorage.getItem('newPic');
-
-//   let typedArrayToURL = (typedArray, mimeType) => {
-//     return URL.createObjectURL(picture, {type: mimeType});
-//   }
-
-//   let url = typedArrayToURL(picture, "text/plain");
-
-// let link = document.createElement("a");
-// link.href = url;
-
-//   // let legit = blobToFile(picture, "profile-img.png");
-//   var file = new File([picture], "new-pic.png", {lastModified: 1534584790000});
-//   console.log(url);
-}
-
-export function reload() {
-  getCurrProfileData();
-}
 /**
 * Given an array of profile objects, this function converts the data into HTML,
 *     loads it into the DOM, and adds event handlers.
@@ -412,14 +332,17 @@ export function reload() {
 */
 export const loadprofileesIntoDOM = function() {
   // Grab a jQuery reference to the root HTML element
-  getCurrProfileData();
-  let profile ={};
-  profile.name =sessionStorage.getItem('name');
-  profile.age = sessionStorage.getItem('age');
-  profile.sign =sessionStorage.getItem('sign');
-  profile.img = sessionStorage.getItem('newPic');
-  profile.interests =sessionStorage.getItem('interests');
-  profile.bio = sessionStorage.getItem('bio');
+  let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  if(sessionStorage.getItem('name') !== null){
+    profile.name =sessionStorage.getItem('name');
+  }
+  if(sessionStorage.getItem('interests') !== null){
+    profile.interests =sessionStorage.getItem('interests');
+  }
+  if(sessionStorage.getItem('bio') !== null){
+    profile.bio =sessionStorage.getItem('bio');
+  }
   
   // console.log(profile);
   const $root = $('#root');

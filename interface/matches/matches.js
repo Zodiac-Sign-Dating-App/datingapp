@@ -71,7 +71,7 @@ export const renderMatches = function(match, sign) {
                         </figure>
                     </div>
 
-                    <div class="card-content is-centered" style = "background-color: white;">
+                    <div class="card-content1 is-centered" style = "background-color: white;">
                         <div class="media-content" style = "text-align: center;">
                             <p class="headerText is-4" style="color:purple; font-size: 40px;">${match.name}</p>
 

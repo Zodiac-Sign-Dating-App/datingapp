@@ -136,6 +136,18 @@ export const renderprofileEditForm = function(profile) {
       </p>
     <br>
 
+
+    <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
+    <form autocomplete="off" action="/action_page.php">
+    <div class="autocomplete" style="width:300px;">
+      <input id="myInput" class="zodiacSign" autocomplete="off" type="text" name="myZodiac" placeholder="Search for Your Zodiac Sign">
+    </div>
+  </form>
+
+  <br>
+  <br>
+  <br>
+
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
       <input class="name input bodyText" type="text" id="interests" value="${profile.interests}"/> 
       </p>
@@ -220,8 +232,8 @@ export const handleEditButtonPress = function(event) {
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
 
-//   var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
-// autocomplete(document.getElementById("myInput"), zods);
+  var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
+autocomplete(document.getElementById("myInput"), zods);
 };
 
 
@@ -268,11 +280,12 @@ export const handleEditFormSubmit = async function(event) {
     let name1 = $('#name').val();
     let interests1 = $('#interests').val();
     let bio1 = $('#bio').val();
+    let sign = $('.zodiacSign').val();
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`},
+        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "sign": `${sign}`},
         "type": "write"
       },
       headers: {

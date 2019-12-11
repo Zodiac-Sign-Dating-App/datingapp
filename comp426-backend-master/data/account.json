@@ -1,16 +1,52 @@
 {
   "users": {
-    "jairo": {
-      "passwordHash": "$2a$10$ldNRwBgu9nEXW7Xb9wpKYOy9z3lS5XFB7Oc9xgAb2xWUkaGWnicCy",
-      "dob": "1998-02-19",
+    "ollyoxxen": {
+      "passwordHash": "$2a$10$k2bieYE/8aAhgsfsWwgQ7OFSm7xK9JbilQuH3owdp2TRgDRi.hZMe",
+      "dob": "1997-12-31",
       "age": 21,
-      "sign": "Pisces"
+      "sign": "Capricorn"
     },
-    "jose": {
-      "passwordHash": "$2a$10$nlDBOdgmwqUARlv6enQyVurjamVU/mym7Tm0zv06sMpv3CW4YIJW.",
-      "dob": "1998-02-19",
+    "test1": {
+      "passwordHash": "$2a$10$8tl4T2M65GHbes35LZrXd.9zgMqXfiNfl0EQRivF0Az16iY9S2WXS",
+      "dob": "1997-12-31",
       "age": 21,
-      "sign": "Pisces"
+      "sign": "Capricorn"
+    },
+    "test2": {
+      "passwordHash": "$2a$10$T8Ti9hBowep9Oj2aPJz6o.C2L7qiuwcptf2LzEF9Oq2OfkOQmdA2K",
+      "dob": "1997-12-31",
+      "age": 21,
+      "sign": "Capricorn"
+    },
+    "test3": {
+      "passwordHash": "$2a$10$apgK8qqLcVAHkXKWvaR6vu/nh5a/Z9r1qQBEyPQr2ItTbzv4iE5YK",
+      "dob": "1997-12-31",
+      "age": 21,
+      "sign": "Capricorn"
+    },
+    "test4": {
+      "passwordHash": "$2a$10$Pz8ukZpoyR1gPnr6Sy0Que7Xcrq89CPyNOcwYZj4Jj7pNgysZYXZW",
+      "dob": "12/31/1997",
+      "age": 21,
+      "sign": "Capricorn"
+    },
+    "yeo": {
+      "passwordHash": "$2a$10$WUquTf/cGiiSBzaYV7Eoo.AeW31bBeSzRmH0F3g2YGrv9y.4CyQtK",
+      "dob": "1997-12-31",
+      "age": 21,
+      "sign": "Capricorn"
+    },
+    "yerrr": {
+      "passwordHash": "$2a$10$2yQNnBcOVGots/rf53IXauS88mN/en1BqQlOZffbIkz5FiQ6nsVx2",
+      "dob": "1997-12-31",
+      "age": 21,
+      "sign": "Capricorn"
+    },
+    "olivebean": {
+      "passwordHash": "$2a$10$X95XJmxIGMuOgIyo3UnWI.1XEeu9/pjiLNSQmVeR7svzoVVsM9gWS",
+      "dob": "1997-12-31",
+      "age": 21,
+      "sign": "Capricorn"
     }
   }
 }

@@ -47,7 +47,7 @@ const third = async function(){
   sessionStorage.setItem('bio', profile.bio);
   location.href = ("../interface/profile/index.html");
   } catch(error){
-    console.log(error);
+    // console.log(error);
     location.href = ("../interface/profile/index.html");
   }
 

@@ -140,7 +140,7 @@ export const renderprofileEditForm = function(profile) {
     <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
     <form autocomplete="off" action="/action_page.php">
     <div class="autocomplete" style="width:300px;">
-      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" placeholder="Search for Your Zodiac Sign">
+      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" placeholder="What's your spirit animal?">
     </div>
   </form>
 

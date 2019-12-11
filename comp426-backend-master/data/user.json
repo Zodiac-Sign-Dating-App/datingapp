@@ -43,5 +43,13 @@
       "interests": "sdnfksjnfkjsnlksd",
       "bio": "sdfnlsdnfknasdkfn"
     }
+  },
+  "jairo": {
+    "profile": {
+      "name": "Jairo",
+      "interests": "myself",
+      "bio": "i am the shit",
+      "animal": "Dragon"
+    }
   }
 }

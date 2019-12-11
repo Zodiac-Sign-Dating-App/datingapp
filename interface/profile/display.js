@@ -330,7 +330,7 @@ export const handleDeleteProfileButton = async function(event) {
       url: 'http://localhost:3000/account/'+user,
       method: 'DELETE',
     }).then(() => {
-      
+      sessionStorage.clear();
       $par.replaceWith(renderDeletedProfilePage());
       location.href = ("../../signup/index.html");
     }).catch(() => {

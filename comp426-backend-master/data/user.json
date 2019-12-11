@@ -12,7 +12,8 @@
     "profile": {
       "name": "Olivia McPhaul",
       "interests": "Swimming, writing, reading",
-      "bio": "Allow yourself to transform as many times as you need to be happy and free."
+      "bio": "Allow yourself to transform as many times as you need to be happy and free.",
+      "animal": "Bird"
     }
   },
   "test4": {
@@ -43,11 +44,11 @@
       "bio": "sdfnlsdnfknasdkfn"
     }
   },
-  "angelica": {
+  "jairo": {
     "profile": {
-      "name": "Ang",
-      "interests": "Myself",
-      "bio": "I am me",
+      "name": "Jairo",
+      "interests": "myself",
+      "bio": "i am the shit",
       "animal": "Dragon"
     }
   }

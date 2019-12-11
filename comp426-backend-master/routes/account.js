@@ -29,6 +29,13 @@ router.get('/status', authenticateUser, function (req, res) {
   );
 });
 
+
+router.delete('/:username', function (req, res) {
+  const {username} = req.params;
+  accountStore.del(`users.${username}`);
+  res.send({status: `'${username}' deleted.`});
+});
+
 /**
  * Given a name and pass, validates a user
  * and returns a JWT.

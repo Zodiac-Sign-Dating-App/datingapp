@@ -6,12 +6,6 @@
       "age": 21,
       "sign": "Capricorn"
     },
-    "test1": {
-      "passwordHash": "$2a$10$8tl4T2M65GHbes35LZrXd.9zgMqXfiNfl0EQRivF0Az16iY9S2WXS",
-      "dob": "1997-12-31",
-      "age": 21,
-      "sign": "Capricorn"
-    },
     "test2": {
       "passwordHash": "$2a$10$T8Ti9hBowep9Oj2aPJz6o.C2L7qiuwcptf2LzEF9Oq2OfkOQmdA2K",
       "dob": "1997-12-31",
@@ -48,11 +42,11 @@
       "age": 21,
       "sign": "Capricorn"
     },
-    "angelica": {
-      "passwordHash": "$2a$10$doqW/8ry0/Cw2v0XFPkvbeNl.QBgzS3/5wQur4LuC8wknhqVvUo62",
-      "dob": "1999-08-08",
-      "age": 20,
-      "sign": "Leo"
+    "jairo": {
+      "passwordHash": "$2a$10$dx2eB3EEnsP6C7jXCS5ivuMnMe/VtyhU/DlJ8SDm8Vi4aSFgjOT0q",
+      "dob": "1998-02-19",
+      "age": 21,
+      "sign": "Pisces"
     }
   }
 }

@@ -25,7 +25,7 @@ export const renderprofileCard = function(profile) {
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
   <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
-  <button <a class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
+  <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
   <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" >My Profile</a></button>
   </div>
   
@@ -144,7 +144,7 @@ export const renderprofileEditForm = function(profile) {
     <p class="subtitle is-6" style="color:white; text-align: left;"> Spirit Animal: </p>
     <form autocomplete="off" action="/action_page.php">
     <div class="autocomplete" style="width:300px;">
-      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" value="${profile.animal}" placeholder="What's your spirit animal?">
+      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" placeholder="What's your spirit animal?">
     </div>
   </form>
 
@@ -253,11 +253,9 @@ export const handleCancelButtonPress = function(event) {
   // TODO: Render the profile card for the clicked profile and replace the
   //       profile's edit form in the DOM with their card instead
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?"};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
   if(sessionStorage.getItem('name') !== null){
   profile.name =sessionStorage.getItem('name');}
-  if(sessionStorage.getItem('animal') !== null){
-    profile.name =sessionStorage.getItem('animal');}
   if(sessionStorage.getItem('interests') !== null){
   profile.interests =sessionStorage.getItem('interests');}
   if(sessionStorage.getItem('bio') !== null){
@@ -288,12 +286,12 @@ export const handleEditFormSubmit = async function(event) {
     let name1 = $('#name').val();
     let interests1 = $('#interests').val();
     let bio1 = $('#bio').val();
-    let animal1 = $('.spiritAnimal').val();
+    let animal = $('.spiritAnimal').val();
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "animal": `${animal1}`},
+        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "animal": `${animal}`},
         "type": "write"
       },
       headers: {
@@ -302,12 +300,11 @@ export const handleEditFormSubmit = async function(event) {
     });
 
     let profile ={name: name1, interests: interests1,
-    bio: bio1, age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'),
-    animal: animal1};
+    bio: bio1, age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: sessionStorage.getItem('animal')};
     sessionStorage.setItem('name', profile.name);
-    sessionStorage.setItem('animal', profile.animal);
     sessionStorage.setItem('interests', profile.interests);
     sessionStorage.setItem('bio', profile.bio);
+    sessionStorage.setItem('animal', profile.animal);
 
     $par.replaceWith(renderprofileCard(profile))
 };
@@ -333,7 +330,7 @@ export const handleDeleteProfileButton = async function(event) {
       url: 'http://localhost:3000/account/'+user,
       method: 'DELETE',
     }).then(() => {
-      
+      sessionStorage.clear();
       $par.replaceWith(renderDeletedProfilePage());
       location.href = ("../../signup/index.html");
     }).catch(() => {
@@ -459,7 +456,7 @@ function autocomplete(inp, arr) {
           inp.value = this.getElementsByTagName("input")[0].value;
           closeAllLists();
           console.log(inp.value);
-          sessionStorage.setItem('sign', inp.value);
+          sessionStorage.setItem('animal', inp.value);
         });
           a.appendChild(b);
       }

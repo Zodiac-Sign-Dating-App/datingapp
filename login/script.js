@@ -3,7 +3,7 @@
 $(function() {
   const $form = $('#login-form');
   const $message = $('#message');
-
+sessionStorage.clear();
 const second = function(){
   let token = sessionStorage.getItem('jwt');
       $.ajax({

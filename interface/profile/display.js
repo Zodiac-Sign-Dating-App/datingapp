@@ -140,7 +140,7 @@ export const renderprofileEditForm = function(profile) {
     <p class="subtitle is-6" style="color:white; text-align: left;"> Zodiac: </p>
     <form autocomplete="off" action="/action_page.php">
     <div class="autocomplete" style="width:300px;">
-      <input id="myInput" class="zodiacSign" autocomplete="off" type="text" name="myZodiac" placeholder="Search for Your Zodiac Sign">
+      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" placeholder="Search for Your Zodiac Sign">
     </div>
   </form>
 
@@ -280,12 +280,12 @@ export const handleEditFormSubmit = async function(event) {
     let name1 = $('#name').val();
     let interests1 = $('#interests').val();
     let bio1 = $('#bio').val();
-    let sign = $('.zodiacSign').val();
+    let animal = $('.spiritAnimal').val();
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "sign": `${sign}`},
+        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "animal": `${animal}`},
         "type": "write"
       },
       headers: {
@@ -346,7 +346,7 @@ $par.replaceWith(renderDeletedProfilePage());
 export const loadprofileesIntoDOM = function() {
   // Grab a jQuery reference to the root HTML element
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?"};
   if(sessionStorage.getItem('name') !== null){
     profile.name =sessionStorage.getItem('name');
   }
@@ -355,6 +355,10 @@ export const loadprofileesIntoDOM = function() {
   }
   if(sessionStorage.getItem('bio') !== null){
     profile.bio =sessionStorage.getItem('bio');
+  }
+
+  if(sessionStorage.getItem('animal') !== null){
+    profile.bio =sessionStorage.getItem('animal');
   }
   
   // console.log(profile);

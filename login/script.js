@@ -29,18 +29,6 @@ const second = function(){
       });
       
 };  
-const randomQuote  = async function(){
-  let res = {author: " ", quote: " "};
-  const result = await axios({
-    url: 'http://quotes.stormconsultancy.co.uk/random.json',
-    method: 'get',
-  });
-  console.log(result.data);
-  res.author =result.data.author;
-  res.quote = result.data.quote;
-  return res;
-
-}
 
 const third = async function(){
   let token = sessionStorage.getItem('jwt');
@@ -55,6 +43,7 @@ const third = async function(){
   });
   
   profile = result.data.result;
+  sessionStorage.setItem('instagram', profile.ig);
   sessionStorage.setItem('name', profile.name);
   sessionStorage.setItem('animal', profile.animal);
   sessionStorage.setItem('interests', profile.interests);

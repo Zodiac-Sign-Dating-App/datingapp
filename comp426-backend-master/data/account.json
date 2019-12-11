@@ -53,6 +53,12 @@
       "dob": "1999-11-03",
       "age": 20,
       "sign": "Scorpio"
+    },
+    "jd": {
+      "passwordHash": "$2a$10$nc1fS89R1MquTRvedNblwOb.pyKeW.8sugF3kmACoColBUW4uuhrS",
+      "dob": "1998-12-30",
+      "age": 20,
+      "sign": "Capricorn"
     }
   }
 }

@@ -68,6 +68,9 @@ export const renderprofileCard = function(profile) {
       <p style="color:white; text-align: center;"><span style="font-weight: bold;"> Bio: ${profile.bio}
       </p>
       <br>
+      <p style="color:white; text-align: center;"><span style="font-weight: bold;"> Instagram: ${profile.ig}
+      </p>
+      <br>
       <br>
       <p class="subtitle is-6" style="color:purple; font-weight:bold; border: 2px solid purple; padding: 10px; margin: 10px; text-align: center;"> Random quote of the minute: "${quote}" - ${author} 
     </p>
@@ -151,13 +154,13 @@ export const renderprofileEditForm = function(profile) {
     <p class="subtitle is-6" style="color:white; text-align: left;"> Spirit Animal: </p>
     <form autocomplete="off" action="/action_page.php">
     <div class="autocomplete" style="width:300px;">
-      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" placeholder="What's your spirit animal?">
+      <input id="myInput" class="spiritAnimal" autocomplete="off" type="text" name="myZodiac" value = "${profile.animal}" placeholder="What's your spirit animal?">
     </div>
   </form>
 
   <br>
   <br>
-  <br>
+
 
       <p style="color:white; text-align: left;"><span style="font-weight: bold;">Interests:
       <input class="name input bodyText" type="text" id="interests" value="${profile.interests}"/> 
@@ -166,7 +169,9 @@ export const renderprofileEditForm = function(profile) {
       <p style="color:white; text-align: left;"><span style="font-weight: bold;"> Bio:
       <input class="name input bodyText" type="text" id="bio" value="${profile.bio}"/> 
       </p>
-
+      <p style="color:white; text-align: left;"><span style="font-weight: bold;"> Insta Link:
+      <input class="name input bodyText" type="text" id="instagram" value="${profile.ig}"/> 
+      </p>
     </div>
   </div>
 
@@ -232,7 +237,8 @@ export const renderDeletedProfilePageERROR = function() {
 */
 export const handleEditButtonPress = function(event) {
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?"};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?",
+  ig: "Link us to your instagram!"};
   if(sessionStorage.getItem('name') !== null){
   profile.name =sessionStorage.getItem('name');}
   if(sessionStorage.getItem('interests') !== null){
@@ -241,6 +247,9 @@ export const handleEditButtonPress = function(event) {
     profile.animal =sessionStorage.getItem('animal');}
   if(sessionStorage.getItem('bio') !== null){
   profile.bio = sessionStorage.getItem('bio');}
+  if(sessionStorage.getItem('instagram') !== null){
+    profile.ig =sessionStorage.getItem('instagram');
+  }
   let profileEditButton = $(event.target);
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
@@ -260,14 +269,20 @@ export const handleCancelButtonPress = function(event) {
   // TODO: Render the profile card for the clicked profile and replace the
   //       profile's edit form in the DOM with their card instead
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign')};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?",
+  ig: "Link us to your instagram!"};
+
   if(sessionStorage.getItem('name') !== null){
   profile.name =sessionStorage.getItem('name');}
   if(sessionStorage.getItem('interests') !== null){
   profile.interests =sessionStorage.getItem('interests');}
   if(sessionStorage.getItem('bio') !== null){
   profile.bio = sessionStorage.getItem('bio');}
+  if(sessionStorage.getItem('instagram') !== null){
+    profile.ig =sessionStorage.getItem('instagram');
+  }
   let profileCancelButton = $(event.target);
+  
   
   let parOld = profileCancelButton.closest('.profileForm');
   parOld.replaceWith(renderprofileCard(profile));
@@ -293,12 +308,13 @@ export const handleEditFormSubmit = async function(event) {
     let name1 = $('#name').val();
     let interests1 = $('#interests').val();
     let bio1 = $('#bio').val();
+    let ig1 = $('#instagram').val();
     let animal = $('.spiritAnimal').val();
     const result = await axios({
       url: 'http://localhost:3000/user/profile',
       method: 'POST',
       data: {
-        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "animal": `${animal}`},
+        "data":{"name": `${name1}`,"interests": `${interests1}`, "bio": `${bio1}`, "animal": `${animal}`, "ig": `${ig1}`},
         "type": "write"
       },
       headers: {
@@ -307,11 +323,13 @@ export const handleEditFormSubmit = async function(event) {
     });
 
     let profile ={name: name1, interests: interests1,
-    bio: bio1, age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: sessionStorage.getItem('animal')};
+    bio: bio1, age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: sessionStorage.getItem('animal'),
+    ig: ig1};
     sessionStorage.setItem('name', profile.name);
     sessionStorage.setItem('interests', profile.interests);
     sessionStorage.setItem('bio', profile.bio);
     sessionStorage.setItem('animal', profile.animal);
+    sessionStorage.setItem('instagram', profile.ig);
 
     $par.replaceWith(renderprofileCard(profile))
 };
@@ -360,9 +378,13 @@ $par.replaceWith(renderDeletedProfilePage());
 export const loadprofileesIntoDOM = function() {
   // Grab a jQuery reference to the root HTML element
   let profile ={name: "Enter your name!", interests: "List some of your cool hobbies/interests!",
-  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?"};
+  bio: "Tell us about yourself!", age: sessionStorage.getItem('age'), sign: sessionStorage.getItem('sign'), animal: "What's your spirit animal?",
+  ig: "Link us to your instagram!"};
   if(sessionStorage.getItem('name') !== null){
     profile.name =sessionStorage.getItem('name');
+  }
+  if(sessionStorage.getItem('instagram') !== null){
+    profile.ig =sessionStorage.getItem('instagram');
   }
   if(sessionStorage.getItem('interests') !== null){
     profile.interests =sessionStorage.getItem('interests');

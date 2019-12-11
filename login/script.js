@@ -31,8 +31,48 @@ $(function() {
       const name = res.name;
       sessionStorage.setItem('jwt', jwt);
       sessionStorage.setItem('user', name);
-      location.href = ("../interface/profile/index.html");
-    }).catch(() => {
+      
+    }).then(() =>{
+      let token = sessionStorage.getItem('jwt');
+      $.ajax({
+        url: 'http://localhost:3000/account/status',
+        method: 'get',
+      
+        headers: {
+          Authorization: `Bearer ${token}`
+        },
+        withCredentials: true,
+        success: function(data){
+          res = data;
+        }
+      }).then(() => {
+
+        // console.log(res.user);
+        sessionStorage.setItem('age', res.user.age);
+        sessionStorage.setItem('sign', res.user.sign);
+      });}).then(() =>{
+        let token = sessionStorage.getItem('jwt');
+        $.ajax({
+          url: 'http://localhost:3000/user/profile',
+          method: 'get',
+        
+          headers: {
+            Authorization: `Bearer ${token}`
+          },
+          withCredentials: true,
+          success: function(data){
+            res = data;
+          }
+        }).then(() => {
+  
+          // console.log(res.user);
+          sessionStorage.setItem('name', profile.name);
+          sessionStorage.setItem('interests', profile.interests);
+          sessionStorage.setItem('bio', profile.bio);
+          
+        }).catch(() =>{
+          location.href = ("../interface/profile/index.html");
+        });}).catch(() => {
       $message.html('<span class="has-text-danger">Something went wrong and you were not logged in. Check your email and password and your internet connection.</span>');
     });
   });

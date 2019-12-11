@@ -97,6 +97,14 @@ label {
   margin-bottom: 40px;
 }
 
+.card1 {
+  width: 90%;
+  float: left;
+  margin: 50px;
+  height: 80%;
+  margin-bottom: 40px;
+}
+
 .card-image {
     display: inline-block;
     margin-left: auto;

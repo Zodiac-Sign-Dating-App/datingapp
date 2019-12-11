@@ -63,7 +63,7 @@ export const renderMatches = function(match, sign) {
     return `
     <div class="container cardid" data-id="${match.id}">
         <div style="padding: none;">
-            <div class="card">
+            <div class="card" style="margin: 50px">
                 <div class="columns" style="background-color:white;">
                     <div class = "media-left">
                         <figure class="image card-image">

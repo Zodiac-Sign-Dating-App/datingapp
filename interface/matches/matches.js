@@ -63,10 +63,10 @@ export const renderMatches = function(match) {
     <div class="container cardid" data-id="${match.id}">
         <div style="padding: none;">
             <div class="card">
-                <div class="columns" style="background-color:black;">
+                <div class="columns" style="background-color:white;">
                     <div class = "media-left">
-                        <figure class="image profile">
-                            <img src="${match.img}" alt="Placeholder image">
+                        <figure class="image card-image">
+                            <img class="matchProfile" src="${match.img}" alt="Placeholder image" style="width: 370px; height: 350px; margin-left: 40px; margin-top: 10px;">
                         </figure>
                     </div>
 

@@ -47,6 +47,12 @@
       "dob": "1998-02-19",
       "age": 21,
       "sign": "Pisces"
+    },
+    "brennorac": {
+      "passwordHash": "$2a$10$VDe99C/Ct//rmSJ.4O3Ln.8AKK1kFmt0igOguzU8Op6e/DREReDXq",
+      "dob": "1999-11-03",
+      "age": 20,
+      "sign": "Scorpio"
     }
   }
 }

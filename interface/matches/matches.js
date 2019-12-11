@@ -147,7 +147,8 @@ export const renderNavBar = function() {
 
 
 export const loadMatchesIntoDOM = function (matchez) {
-    let sign = sessionStorage.getItem('sign');
+    let si = sessionStorage.getItem('sign');
+    let sign = si.toLowerCase();
     const $root = $('#root');
     let nav = renderNavBar();
     $root.append(nav);

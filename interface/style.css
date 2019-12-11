@@ -194,6 +194,9 @@ img.center {
   border-bottom: 1px solid #d4d4d4; 
 }
 
+.button.is-rounded {
+  margin: 20px;
+}
 
   @media screen and (max-width: 800px) {
  

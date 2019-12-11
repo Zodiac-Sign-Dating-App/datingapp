@@ -13,6 +13,7 @@ const zodiacs = [{
     virgo: 65,
     libra: 45,
     pisces: 70,
+    matches: ["taurus", "scorpio", "cancer", "pisces", "virgo"],
 },
 {
     id: "taurus",
@@ -28,6 +29,7 @@ const zodiacs = [{
     virgo: 85,
     libra: 35,
     pisces: 99,
+    matches: ["taurus", "capricorn", "scorpio", "cancer", "virgo", "pisces"],
 },
 {
     id: "capricorn",
@@ -43,6 +45,7 @@ const zodiacs = [{
     virgo: 65,
     libra: 15,
     pisces: 99,
+    matches: ["taurus", "cancer", "pisces", "virgo"],
 },
 {
     id: "gemini",
@@ -58,6 +61,7 @@ const zodiacs = [{
     virgo: 5,
     libra: 80,
     pisces: 15,
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
 },
 {
     id: "sagittarius",
@@ -73,6 +77,7 @@ const zodiacs = [{
     virgo: 30,
     libra: 90,
     pisces: 30,
+    matches: ["gemini", "sagittarius", "aries", "leo", "libra", "aquarius"],
 },
 {
     id: "aries",
@@ -88,6 +93,7 @@ const zodiacs = [{
     virgo: 10,
     libra: 80,
     pisces: 20,
+    matches: ["taurus", "gemini", "sagittarius", "aries", "aquarius", "leo", "cancer", "libra"],
 },
 {
     id: "aquarius",
@@ -103,6 +109,7 @@ const zodiacs = [{
     virgo: 1,
     libra: 90,
     pisces: 50,
+    matches: ["gemini", "sagittarius", "aries", "leo", "libra"],
 },
 {
     id: "leo",
@@ -118,6 +125,7 @@ const zodiacs = [{
     virgo: 5,
     libra: 90,
     pisces: 1,
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "libra"],
 },
 {
     id: "cancer",
@@ -133,6 +141,7 @@ const zodiacs = [{
     virgo: 95,
     libra: 40,
     pisces: 85,
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
 },
 {
     id: "virgo",
@@ -148,6 +157,7 @@ const zodiacs = [{
     virgo: 30,
     libra: 1,
     pisces: 99,
+    matches: ["taurus", "capricorn", "cancer", "pisces", "scorpio"],
 },
 {
     id: "libra",
@@ -163,6 +173,7 @@ const zodiacs = [{
     virgo: 1,
     libra: 65,
     pisces: 50,
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
 },
 {
     id: "pisces",
@@ -178,5 +189,6 @@ const zodiacs = [{
     virgo: 99,
     libra: 50,
     pisces: 75,
+    matches: ["taurus", "capricorn", "cancer", "pisces", "scorpio", "virgo"],
 },
 ];

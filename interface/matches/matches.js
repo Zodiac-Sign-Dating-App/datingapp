@@ -15,8 +15,8 @@ export const matchesMain = function() {
 };
 
 export const renderMatches = function(match) {
-    let onj = zodiacs.filter(obj => { return obj.id = "scorpio";});
-    let compatability = onj.taurus;
+    let zodi = zodiacs.find(obj => { return obj.id == "scorpio";}); //id == sign
+    let compatability = zodi.taurus; //zodi.(${match.zodiac});
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -92,11 +92,11 @@ export const renderMatches = function(match) {
                             </div>
                         </div>
 
-                        <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
+                        <button onclick = "window.location.href = ${match.insta};" class="instaButton button is-medium is-rounded is-black headerText" type = "button"> 
                             <figure class="image is-32x32 icon">
                                 <img src = "../instagram.png" alt = "insatgram">
                             </figure> &nbsp &nbsp &nbsp Link with me on Instagram
-                        </a></button>
+                        </button>
                     </div>
                 </div>
             </div>

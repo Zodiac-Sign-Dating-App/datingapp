@@ -14,9 +14,10 @@ export const matchesMain = function() {
     </div>`;
 };
 
-export const renderMatches = function(match) {
-    let onj = zodiacs.filter(obj => { return obj.id = "scorpio";});
-    let compatability = onj.taurus;
+export const renderMatches = function(match, sign) {
+    let zodi = zodiacs.find(obj => { return obj.id == sign;}); //id == sign
+    let xan = match.zodiac;
+    let compatability = zodi.xan; //zodi.(${match.zodiac});
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -146,6 +147,7 @@ export const renderNavBar = function() {
 
 
 export const loadMatchesIntoDOM = function (matchez) {
+    let sign = sessionStorage.getItem('sign');
     const $root = $('#root');
     let nav = renderNavBar();
     $root.append(nav);
@@ -155,10 +157,10 @@ export const loadMatchesIntoDOM = function (matchez) {
     let matchDOM = [];
     for(let i =0; i <= (matchez.length-1); i++) {
         let m = matchez[i];
-        //let u = matchez.find(item => item[id] = "brennora");
-        //if(m[id] != u[id]) {
-        matchDOM[i] = renderMatches(m);
-        //}
+        let z = zodiacs.find(obj => { return obj.id == sign;});
+        if(z.matches.includes(m.zodiac)) {
+            matchDOM[i] = renderMatches(m, sign);
+        }
     }
     $root.append(matchDOM);
 };

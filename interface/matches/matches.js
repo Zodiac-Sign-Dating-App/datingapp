@@ -1,31 +1,21 @@
 export const matchesMain = function() {
     return `
     <div>
-        <div style="text-align: center;">
-            <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Home</a></button>
-            <button <a href = "index.html" class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">Matches</a></button>
-            <button <a class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" data-id="${profile.id}">My Profile</a></button>
-        </div>
-        <section id = "header">
-            <div class = "container" align = "center">
-                <p class="headerText">
-                    Matches
-                </p>
-
-                <div class = "specialText">
+    <div style = "text-align: center;">
+        <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Matches</p>
+        <div class = "headerText" style = "color:white;">
                     Your star crossed matches can't wait to meet you!
-                </div>
-            </div>
-        </section>
-
-        
-        <div id = "matches">
         </div>
+    </div>
+    <br>
+
+    <div id = "matches">
+    </div>
     </div>`;
 };
 
-export const renderMatches = function(match, user) {
-    let compatability = $zodiacs.find(item => item.id = user.zodiac)[match.zodiac];
+export const renderMatches = function(match, pro) {
+    let compatability = zodiacs.find(item => item.id = pro.zodiac)[match.zodiac];
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -68,7 +58,7 @@ export const renderMatches = function(match, user) {
             zimage = "../../images/galaxy.jpg"
     };
 
-    const matchView = $(`
+    let matchView = `
     <div align="center"> 
         <div class = "media headerText" align = "center>
             <img src = ${match.img} alt = "pic">
@@ -82,7 +72,7 @@ export const renderMatches = function(match, user) {
                         <img src= ${zimage} alt="match zodiac">
                     </figure>
 
-                    <p class = "headerText">Compatability Score: <span class = "titleText" style = "color: red"> ${compatability} <span></p>
+                    <p class = "headerText">Compatability Score: <span class = "titleText" style = "color: red;"> ${compatability} <span></p>
                 </div>
 
                 <div class="media-content">
@@ -103,24 +93,34 @@ export const renderMatches = function(match, user) {
                 </a></button>
             </article>
         </div>
-    </div>`); 
+    </div>`; 
    
     return matchView;
 };
 
-export const renderNavBar = function(profile) {
+export const renderNavBar = function() {
 
-    return `<nav class="navbar" role="navigation" aria-label="main navigation">
+    return `
+    <nav class="navbar" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="profile/index.html">
+      <a class="navbar-item" href="../profile/index.html">
           <h1 class="titletext">Star Crossed</h1>
       </a>
     
+    </div>
+
+    <div class = "topnav-centered">
+        <div class = "navbar-item" style="text-align: center;">
+            <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
+            <button <a class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
+            <button <a class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;">My Profile</a></button>
+        </div>
     </div>
     
       <div class="navbar-end">
         <div class="navbar-item">
           <div class="buttons">
+          
             
             <a class="button is-light" href ="../../login/index.html">
               Log Out
@@ -133,31 +133,30 @@ export const renderNavBar = function(profile) {
     
     }
 
-export const loadMatches = function (matches) {
-    let user = profileData.find(item => item.id = "brennora");
-    matches.forEach(function (match) {
-        if(match.id != user.id) {
-            if((user.matches).includes(match.zodiac)) {
-                if((user.like).includes(match.gender)) {
-                    $('#matches').append(renderMatches(match, user));
+export const loadMatches = function (matchez) {
+    let pro = matchez.find(item => item.id = "brennora");
+    matchez.forEach(function (match) {
+        if(match.id != pro.id) {
+            if((pro.matches).includes(match.zodiac)) {
+                if((pro.like).includes(match.gender)) {
+                    $('#matches').append(renderMatches(match, pro));
                 }
             }
         }
     });
 };
 
-export const loadMatchesIntoDOM = function (matches) {
+export const loadMatchesIntoDOM = function (matchez) {
     const $root = $('#root');
-
     let nav = renderNavBar();
-
     $root.append(nav);
-    $root.append(matchesMain());
-
-    loadMatches(matches);
+    let main = matchesMain();
+    $root.append(main);
+    $root.append(loadMatches(matchez));
     
 };
 
-$(function () {
+$(document).ready(function() {
+
     loadMatchesIntoDOM(profileData);
 });

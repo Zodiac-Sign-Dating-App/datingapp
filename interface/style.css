@@ -69,6 +69,14 @@ label {
 
 }
 
+.topnav-centered {
+  float: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 .titleText {
   font-family: castela;
 }

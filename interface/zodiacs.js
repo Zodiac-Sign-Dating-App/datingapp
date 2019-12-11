@@ -1,6 +1,6 @@
 /*Represents a list of zodiacs and how compatable they are with other signs (if the compatability is 70% or above)*/
 const zodiacs = [{
-    id: scorpio,
+    id: "scorpio",
     taurus: 95,
     capricorn: 60,
     gemini: 1,
@@ -15,7 +15,7 @@ const zodiacs = [{
     pisces: 70,
 },
 {
-    id: taurus,
+    id: "taurus",
     taurus: 95,
     capricorn: 85,
     gemini: 5,
@@ -30,7 +30,7 @@ const zodiacs = [{
     pisces: 99,
 },
 {
-    id: capricorn,
+    id: "capricorn",
     taurus: 85,
     capricorn: 40,
     gemini: 1,
@@ -45,7 +45,7 @@ const zodiacs = [{
     pisces: 99,
 },
 {
-    id: gemini,
+    id: "gemini",
     taurus: 5,
     capricorn: 1,
     gemini: 80,
@@ -60,7 +60,7 @@ const zodiacs = [{
     pisces: 15,
 },
 {
-    id: sagittarius,
+    id: "sagittarius",
     taurus: 25,
     capricorn: 5,
     gemini: 90,
@@ -75,7 +75,7 @@ const zodiacs = [{
     pisces: 30,
 },
 {
-    id: aries,
+    id: "aries",
     taurus: 65,
     capricorn: 5,
     gemini: 90,
@@ -90,7 +90,7 @@ const zodiacs = [{
     pisces: 20,
 },
 {
-    id: aquarius,
+    id: "aquarius",
     taurus: 15,
     capricorn: 5,
     gemini: 85,
@@ -105,7 +105,7 @@ const zodiacs = [{
     pisces: 50,
 },
 {
-    id: leo,
+    id: "leo",
     taurus: 50,
     capricorn: 5,
     gemini: 90,
@@ -120,7 +120,7 @@ const zodiacs = [{
     pisces: 1,
 },
 {
-    id: cancer,
+    id: "cancer",
     taurus: 95,
     capricorn: 99,
     gemini: 5,
@@ -135,7 +135,7 @@ const zodiacs = [{
     pisces: 85,
 },
 {
-    id: virgo,
+    id: "virgo",
     taurus: 85,
     capricorn: 65,
     gemini: 5,
@@ -150,7 +150,7 @@ const zodiacs = [{
     pisces: 99,
 },
 {
-    id: libra,
+    id: "libra",
     taurus: 35,
     capricorn: 15,
     gemini: 80,
@@ -165,7 +165,7 @@ const zodiacs = [{
     pisces: 50,
 },
 {
-    id: pisces,
+    id: "pisces",
     taurus: 99,
     capricorn: 99,
     gemini: 15,

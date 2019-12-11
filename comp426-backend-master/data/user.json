@@ -12,7 +12,8 @@
     "profile": {
       "name": "Olivia McPhaul",
       "interests": "Swimming, writing, reading",
-      "bio": "Allow yourself to transform as many times as you need to be happy and free."
+      "bio": "Allow yourself to transform as many times as you need to be happy and free.",
+      "animal": "Bird"
     }
   },
   "test4": {
@@ -41,14 +42,6 @@
       "name": "Olivia McPhaul",
       "interests": "sdnfksjnfkjsnlksd",
       "bio": "sdfnlsdnfknasdkfn"
-    }
-  },
-  "angelica": {
-    "profile": {
-      "name": "Ang",
-      "interests": "Myself",
-      "bio": "I am me",
-      "animal": "Dragon"
     }
   }
 }

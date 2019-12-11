@@ -365,7 +365,7 @@ export const loadprofileesIntoDOM = function() {
   }
 
   if(sessionStorage.getItem('animal') !== null){
-    profile.bio =sessionStorage.getItem('animal');
+    profile.animal =sessionStorage.getItem('animal');
   }
   
   // console.log(profile);

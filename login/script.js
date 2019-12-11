@@ -69,6 +69,7 @@ $(function() {
           sessionStorage.setItem('name', profile.name);
           sessionStorage.setItem('interests', profile.interests);
           sessionStorage.setItem('bio', profile.bio);
+          location.href = ("../interface/profile/index.html");
           
         }).catch(() =>{
           location.href = ("../interface/profile/index.html");

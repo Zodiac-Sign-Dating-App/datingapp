@@ -14,8 +14,9 @@ export const matchesMain = function() {
     </div>`;
 };
 
-export const renderMatches = function(match, pro) {
-    let compatability = zodiacs.find(item => item.id = pro.zodiac)[match.zodiac];
+export const renderMatches = function(match) {
+    let onj = zodiacs.filter(obj => { return obj.id = "scorpio";});
+    let compatability = onj.taurus;
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -58,44 +59,47 @@ export const renderMatches = function(match, pro) {
             zimage = "../../images/galaxy.jpg"
     };
 
-    let matchView = `
-    <div align="center"> 
-        <div class = "media headerText" align = "center>
-            <img src = ${match.img} alt = "pic">
-            ${match.name}
-        </div>
+    return `
+    <div class="container cardid" data-id="${match.id}">
+        <div style="padding: none;">
+            <div class="card" style="background-color:black;">
+                <div class="columns">
+                    <div class = "media-left">
+                        <figure class="image profile">
+                            <img src="${match.img}" alt="Placeholder image">
+                        </figure>
+                    </div>
 
-        <div class="box">
-            <article class="media">
-                <div class="media" align = "center">
-                    <figure class="image is-medium">
-                        <img src= ${zimage} alt="match zodiac">
-                    </figure>
+                    <div class="card-content">
+                        <div class="media-content" style = "text-align: center;">
+                            <p class="headerText is-4" style="color:purple; font-size: 40px;">${match.name}</p>
 
-                    <p class = "headerText">Compatability Score: <span class = "titleText" style = "color: red;"> ${compatability} <span></p>
-                </div>
+                            <div class="media">
+                                <figure class="image is-64x64">
+                                    <img src=${zimage} alt="Placeholder image">
+                                </figure>
+                                Compatability Score : ${compatability}
+                            </div>
+                            
+                            <p style="color:white;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
+                            <p style="color:white;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                        </div>
 
-                <div class="media-content">
-                    <div class="content">
-                        <p class = "headerText">
-                            Age : <span class = "bodyText"> ${match.age} </span>
-                            Interests : <span class = "bodyText"> ${match.interests} </span>
-                            Bio : <span class = "bodyText"> ${match.bio} </span>
-                        </p>
+                        <div class="content" style="color:white; text-align: center;">
+                            ${match.bio}
+                            <br>
+                            <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-dark headerText" type="submit"> 
+                                <figure class="image is-32x32 icon">
+                                    <img src = "../instagram.png" alt = "insatgram">
+                                </figure> &nbsp &nbsp &nbsp Link with me on Instagram
+                            </a></button>
+                        </div>
                     </div>
                 </div>
-
-                <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-dark specialText" type="submit"> 
-                    <figure class="image is-medium icon">
-                        <img src = "../instagram.jpg" alt = "insatgram">
-                    </figure>
-                    Link with me on Instagram
-                </a></button>
-            </article>
+            </div>
         </div>
-    </div>`; 
-   
-    return matchView;
+    </div>`;
+
 };
 
 export const renderNavBar = function() {
@@ -152,11 +156,19 @@ export const loadMatchesIntoDOM = function (matchez) {
     $root.append(nav);
     let main = matchesMain();
     $root.append(main);
-    $root.append(loadMatches(matchez));
-    
+
+    let matchDOM = [];
+    for(let i =0; i <= (matchez.length-1); i++) {
+        let m = matchez[i];
+        //let u = matchez.find(item => item[id] = "brennora");
+        //if(m[id] != u[id]) {
+        matchDOM[i] = renderMatches(m);
+        //}
+    }
+    $root.append(matchDOM);
 };
 
 $(document).ready(function() {
 
-    loadMatchesIntoDOM(profileData);
+    loadMatchesIntoDOM(matchData);
 });

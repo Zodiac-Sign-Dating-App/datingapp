@@ -15,12 +15,26 @@ const profileData = [{
     zodiac: "libra",
     matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
     name: "Marcus Vela",
-    img: "../../images/marcusv.png",
+    img: "../../images/marcusv.jpg",
     bio: "I enjoy long walks on the beach and an occasional cool glass of fruit punch.",
     interests: "skiing, cooking, Netflix & Chill",
     insta: "https://instagram.com/marcusvofficial/",
 }];
-const matchData = [{
+const matchData = [
+    {   id: "marcus",
+        age: "22",
+        dob: "10-07-1997",
+        gender: "male",
+        like: ["female"],
+        zodiac: "libra",
+        matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+        name: "Marcus Vela",
+        img: "../../images/marcusv.jpg",
+        bio: "I enjoy long walks on the beach and an occasional cool glass of fruit punch.",
+        interests: "skiing, cooking, Netflix & Chill",
+        insta: "https://instagram.com/marcusvofficial/",
+    },
+    {
     id: "brennora",
     age: "20",
     dob: "11-03-1999",

@@ -62,33 +62,34 @@ export const renderMatches = function(match) {
     return `
     <div class="container cardid" data-id="${match.id}">
         <div style="padding: none;">
-            <div class="card" style="background-color:black;">
-                <div class="columns">
+            <div class="card">
+                <div class="columns" style="background-color:black;">
                     <div class = "media-left">
                         <figure class="image profile">
                             <img src="${match.img}" alt="Placeholder image">
                         </figure>
                     </div>
 
-                    <div class="card-content">
+                    <div class="card-content is-centered" style = "background-color: white;">
                         <div class="media-content" style = "text-align: center;">
                             <p class="headerText is-4" style="color:purple; font-size: 40px;">${match.name}</p>
 
-                            <div class="media">
-                                <figure class="image is-64x64">
+                            <div class="media" style = "text-align:center;">
+                                <figure class="card-image is-96x96" style = "text-align:center;">
                                     <img src=${zimage} alt="Placeholder image">
                                 </figure>
-                                Compatability Score : ${compatability}
                             </div>
+
+                            <p class="titleText is-6">Compatability Score : ${compatability}</p>
                             
-                            <p style="color:white;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
-                            <p style="color:white;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                            <p style="color:black;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
+                            <p style="color:black;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
                         </div>
 
-                        <div class="content" style="color:white; text-align: center;">
+                        <div class="content" style="color:black; text-align: center;">
                             ${match.bio}
                             <br>
-                            <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-dark headerText" type="submit"> 
+                            <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
                                 <figure class="image is-32x32 icon">
                                     <img src = "../instagram.png" alt = "insatgram">
                                 </figure> &nbsp &nbsp &nbsp Link with me on Instagram

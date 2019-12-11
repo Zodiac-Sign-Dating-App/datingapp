@@ -232,8 +232,8 @@ export const handleEditButtonPress = function(event) {
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
 
-  var zods = ["Capricorn", "Aries", "Pisces", "Libra", "Sagg", "Leo", "Aqua", "Virgo", "taurus"];
-autocomplete(document.getElementById("myInput"), zods);
+  var animals = ["Bird", "Dragon", "Lion", "Bear", "Goat", "Scorpion", "Iguana", "Dog", "Monkey"];
+autocomplete(document.getElementById("myInput"), animals);
 };
 
 

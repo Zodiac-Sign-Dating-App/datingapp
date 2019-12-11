@@ -96,11 +96,11 @@ export const renderMatches = function(match, sign) {
                         </div>
 
                         <div class="content" style="colorblack; text-align: center;">
-                            <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
+                            <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
                                 <figure class="image is-32x32 icon">
                                     <img src = "../instagram.png" alt = "insatgram">
                                 </figure> &nbsp &nbsp &nbsp Link with me on Instagram
-                            </a></button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -123,9 +123,9 @@ export const renderNavBar = function() {
 
     <div class = "topnav-centered">
         <div class = "navbar-item" style="text-align: center;">
-            <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
-            <button <a class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
-            <button <a class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;">My Profile</a></button>
+            <a href = "../../login/index.html" class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a>
+            <a href = "index.html" class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a>
+            <a href = "../profile/index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;">My Profile</a>
         </div>
     </div>
     

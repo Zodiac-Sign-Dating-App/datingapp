@@ -30,9 +30,9 @@ export const renderprofileCard = function(profile) {
   <div class="yourProfile">
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
-  <button <a class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a></button>
-  <button <a class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
-  <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" >My Profile</a></button>
+  <a href = "../../login/index.html" class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Home</a>
+  <a href = "../matches/index.html" class="button is-rounded  headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a>
+  <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" >My Profile</a>
   </div>
   
   <div style="padding: none;">

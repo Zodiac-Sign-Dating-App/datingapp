@@ -36,7 +36,7 @@ export const renderprofileCard = function(profile) {
   </div>
   
   <div style="padding: none;">
-  <div class="card" style="background-color:black;">
+  <div class="card1" style="background-color:black;">
 <div class="card-image">
   <figure>
     <img class="profile center" id="profileImage" src="../../images/logo.png" alt="../../images/blankpic.png">

@@ -85,7 +85,7 @@ export const renderMatches = function(match, sign) {
                                 </figure>
                             </div>
                             <div class="titleText" style="font-size: 30px;">
-                                Compatability Score : ${compatability}
+                                Compatability Score : <p style = "color: purple;">${compatability}%</p>
                             </div>
                             
                             <div class = "bodyText">

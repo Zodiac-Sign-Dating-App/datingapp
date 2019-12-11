@@ -74,27 +74,29 @@ export const renderMatches = function(match) {
                         <div class="media-content" style = "text-align: center;">
                             <p class="headerText is-4" style="color:purple; font-size: 40px;">${match.name}</p>
 
+                            <div class="content bodyText" style="color:black; text-align: center;">
+                                <i>"${match.bio}"</i>
+                            </div>
+
                             <div class="media" style = "text-align:center;">
-                                <figure class="card-image is-96x96" style = "text-align:center;">
+                                <figure class="card-image" style = "text-align:center;">
                                     <img src=${zimage} alt="Placeholder image">
                                 </figure>
                             </div>
 
-                            <p class="titleText is-6">Compatability Score : ${compatability}</p>
-                            
-                            <p style="color:black;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
-                            <p style="color:black;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                            <p class="titleText" style = "font-size: 30px;">Compatability Score : ${compatability}</p>
+                            <div class = "bodyText">
+                                <p style="color:black;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                                <p style="color:black;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
+                                <br><br>
+                            </div>
                         </div>
 
-                        <div class="content" style="color:black; text-align: center;">
-                            ${match.bio}
-                            <br>
-                            <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
-                                <figure class="image is-32x32 icon">
-                                    <img src = "../instagram.png" alt = "insatgram">
-                                </figure> &nbsp &nbsp &nbsp Link with me on Instagram
-                            </a></button>
-                        </div>
+                        <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
+                            <figure class="image is-32x32 icon">
+                                <img src = "../instagram.png" alt = "insatgram">
+                            </figure> &nbsp &nbsp &nbsp Link with me on Instagram
+                        </a></button>
                     </div>
                 </div>
             </div>

@@ -6,12 +6,6 @@
       "age": 21,
       "sign": "Capricorn"
     },
-    "test1": {
-      "passwordHash": "$2a$10$8tl4T2M65GHbes35LZrXd.9zgMqXfiNfl0EQRivF0Az16iY9S2WXS",
-      "dob": "1997-12-31",
-      "age": 21,
-      "sign": "Capricorn"
-    },
     "test2": {
       "passwordHash": "$2a$10$T8Ti9hBowep9Oj2aPJz6o.C2L7qiuwcptf2LzEF9Oq2OfkOQmdA2K",
       "dob": "1997-12-31",

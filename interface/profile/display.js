@@ -69,7 +69,7 @@ export const renderprofileCard = function(profile) {
       </p>
       <br>
       <br>
-      <p class="subtitle is-6" style="color:white; text-align: center;"> Random quote of the minute: "${quote}" - ${author} 
+      <p class="subtitle is-6" style="color:purple; font-weight:bold; border: 2px solid purple; padding: 10px; margin: 10px; text-align: center;"> Random quote of the minute: "${quote}" - ${author} 
     </p>
     </div>
   </div>

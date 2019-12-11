@@ -5,6 +5,12 @@
       "dob": "1998-02-19",
       "age": 21,
       "sign": "Pisces"
+    },
+    "jose": {
+      "passwordHash": "$2a$10$nlDBOdgmwqUARlv6enQyVurjamVU/mym7Tm0zv06sMpv3CW4YIJW.",
+      "dob": "1998-02-19",
+      "age": 21,
+      "sign": "Pisces"
     }
   }
 }

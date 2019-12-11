@@ -19,6 +19,8 @@ export const renderprofileCard = function(profile) {
   let picture = sessionStorage.getItem('newPic');
   
   return `
+  <div class="container cardid" style="margin:0 auto;">
+
   <div class="yourProfile">
   <p class="is-4 titleText" style="color:purple; font-size: 60px; text-align: center;">Welcome ${user}</p>
   <div style="text-align: center;">
@@ -26,8 +28,7 @@ export const renderprofileCard = function(profile) {
   <button <a class="button is-rounded EditButton headerText" style="color:purple; padding: 5px; margin: 5px;" >Matches</a></button>
   <button <a href="index.html" class="button is-rounded headerText" style="color:purple; padding: 5px; margin: 5px;" >My Profile</a></button>
   </div>
-
-  <div class="container cardid" style="margin:0 auto;">
+  
   <div style="padding: none;">
   <div class="card" style="background-color:black;">
 <div class="card-image">

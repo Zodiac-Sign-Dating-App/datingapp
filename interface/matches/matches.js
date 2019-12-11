@@ -17,7 +17,7 @@ export const matchesMain = function() {
 export const renderMatches = function(match, sign) {
     let zodi = zodiacs.find(obj => { return obj.id == sign;}); //id == sign
     let xan = match.zodiac;
-    let compatability = zodi.xan; //zodi.(${match.zodiac});
+    let compatability = zodi[xan]; //zodi.(${match.zodiac});
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -149,6 +149,7 @@ export const renderNavBar = function() {
 export const loadMatchesIntoDOM = function (matchez) {
     let si = sessionStorage.getItem('sign');
     let sign = si.toLowerCase();
+    let z = zodiacs.find(obj => { return obj.id == sign;});
     const $root = $('#root');
     let nav = renderNavBar();
     $root.append(nav);
@@ -158,7 +159,6 @@ export const loadMatchesIntoDOM = function (matchez) {
     let matchDOM = [];
     for(let i =0; i <= (matchez.length-1); i++) {
         let m = matchez[i];
-        let z = zodiacs.find(obj => { return obj.id == sign;});
         if(z.matches.includes(m.zodiac)) {
             matchDOM[i] = renderMatches(m, sign);
         }

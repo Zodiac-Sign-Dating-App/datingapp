@@ -14,9 +14,10 @@ export const matchesMain = function() {
     </div>`;
 };
 
-export const renderMatches = function(match) {
-    let onj = zodiacs.filter(obj => { return obj.id = "scorpio";});
-    let compatability = onj.taurus;
+export const renderMatches = function(match, sign) {
+    let zodi = zodiacs.find(obj => { return obj.id == sign;}); //id == sign
+    let xan = match.zodiac;
+    let compatability = zodi.xan; //zodi.(${match.zodiac});
     let zimage = "../../images/galaxy.jpg";
     switch(match.zodiac) {
         case "scorpio":
@@ -74,22 +75,27 @@ export const renderMatches = function(match) {
                         <div class="media-content" style = "text-align: center;">
                             <p class="headerText is-4" style="color:purple; font-size: 40px;">${match.name}</p>
 
+                            <div class="content bodyText" style="color:purple; text-align: center;">
+                                <i>"${match.bio}"</i>
+                            </div>
+
                             <div class="media">
-                                <figure class="image is-64x64 is-centered">
+                                <figure class="card-image is-96x96 is-centered">
                                     <img src=${zimage} alt="Placeholder image">
                                 </figure>
                             </div>
-                            <div class="titleText">
+                            <div class="titleText" style="font-size: 30px;">
                                 Compatability Score : ${compatability}
                             </div>
                             
-                            <p style="color:black;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
-                            <p style="color:black;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                            <div class = "bodyText">
+                                <p style="color:black;"><span style="font-weight: bold;">Interests: </span>${match.interests}</p>
+                                <p style="color:black;"><span style="font-weight: bold;">Age: </span>${match.age}</p>
+                                <br>
+                            </div>
                         </div>
 
-                        <div class="content" style="color:black; text-align: center;">
-                            ${match.bio}
-                            <br>
+                        <div class="content" style="colorblack; text-align: center;">
                             <button <a href = ${match.insta} class="instaButton button is-medium is-rounded is-black headerText" type="submit"> 
                                 <figure class="image is-32x32 icon">
                                     <img src = "../instagram.png" alt = "insatgram">
@@ -139,20 +145,9 @@ export const renderNavBar = function() {
     
     }
 
-export const loadMatches = function (matchez) {
-    let pro = matchez.find(item => item.id = "brennora");
-    matchez.forEach(function (match) {
-        if(match.id != pro.id) {
-            if((pro.matches).includes(match.zodiac)) {
-                if((pro.like).includes(match.gender)) {
-                    $('#matches').append(renderMatches(match, pro));
-                }
-            }
-        }
-    });
-};
 
 export const loadMatchesIntoDOM = function (matchez) {
+    let sign = sessionStorage.getItem('sign');
     const $root = $('#root');
     let nav = renderNavBar();
     $root.append(nav);
@@ -162,10 +157,10 @@ export const loadMatchesIntoDOM = function (matchez) {
     let matchDOM = [];
     for(let i =0; i <= (matchez.length-1); i++) {
         let m = matchez[i];
-        //let u = matchez.find(item => item[id] = "brennora");
-        //if(m[id] != u[id]) {
-        matchDOM[i] = renderMatches(m);
-        //}
+        let z = zodiacs.find(obj => { return obj.id == sign;});
+        if(z.matches.includes(m.zodiac)) {
+            matchDOM[i] = renderMatches(m, sign);
+        }
     }
     $root.append(matchDOM);
 };

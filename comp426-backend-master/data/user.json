@@ -13,7 +13,8 @@
       "name": "Olivia McPhaul",
       "interests": "Swimming, writing, reading",
       "bio": "Allow yourself to transform as many times as you need to be happy and free.",
-      "animal": "Scorpion"
+      "animal": "Scorpion",
+      "ig": "undefined"
     }
   },
   "test4": {
@@ -49,8 +50,7 @@
       "name": "Jairo",
       "interests": "myself",
       "bio": "i am the shit",
-      "animal": "Dragon",
-      "ig": "url"
+      "animal": "Dragon"
     }
   }
 }

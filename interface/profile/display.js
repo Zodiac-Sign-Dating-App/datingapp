@@ -88,12 +88,6 @@ export const renderprofileCard = function(profile) {
 
 };
 
- function blobToFile(theBlob, fileName){
-  //A Blob() is almost a File() - it's just missing the two properties below which we will add
-  theBlob.lastModifiedDate = new Date();
-  theBlob.name = fileName;
-  return theBlob;
-}
 
 export const renderNavBar = function(profile) {
 
@@ -419,21 +413,12 @@ export const loadprofileesIntoDOM = function() {
 
 function fasterPreview(uploader) {
     if ( uploader.files && uploader.files[0] ){
-      // var reader = new FileReader();
-  
-      // reader.onload = function (x) {
-      //   $('#profileImage').attr('src', x.target.result);
-      //   // console.log(x.target.result);
-      // }
-  
-      // reader.readAsDataURL(uploader.files[0]);
       let g = window.URL.createObjectURL(uploader.files[0]);
           $('#profileImage').attr('src', 
             g );
             
              console.log(g);
              sessionStorage.setItem('newPic', g);
-             let newPic = sessionStorage.getItem('newPic');
 
     }
 }
@@ -454,104 +439,121 @@ $("#profileImage").click(function(e) {
 // and compares it to the user input
 function autocomplete(input, arr) {
   
-  // listen for someone typing in an input
+
   var listSpot;
   input.addEventListener("input", function (e) {
-    var a, b, i, val = this.value;
+  var listOptions, listMatches, i, val = this.value;
 
   // close list everytime user clicks input field so value doesn't repeat
   closeAllLists();
 
-   // if there isnt a text field, return back to nothing
-  if (!val) { return false; }
-  // assign value to before list begins
+  if (!val){ 
+    return false; 
+  }
+
     listSpot = -1;
      // Creative a div element that will act as the list of matching options 
-    a = document.createElement("DIV");
+     listOptions = document.createElement("DIV");
    
-    a.setAttribute("id", this.id + "autocomplete-list");
-    a.setAttribute("class", "autocomplete-items");
-    this.parentNode.appendChild(a);
+    listOptions.setAttribute("id", this.id + "animal-list");
+    listOptions.setAttribute("class", "autocomplete-items");
+    this.parentNode.appendChild(listOptions);
 
     for (i = 0; i < arr.length; i++) {
        // For each item in array, check if the item starts with the same letters as the user input 
       
-       if (arr[i].substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+       if (val.toUpperCase() == arr[i].substr(0, val.length).toUpperCase()) {
           // if they match, create a div for the option and bold the first letter
-          b = document.createElement("DIV");
-          b.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
-          b.innerHTML += arr[i].substr(val.length);
-          b.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
+          listMatches = document.createElement("DIV");
+          listMatches.innerHTML = "<strong>" + arr[i].substr(0, val.length) + "</strong>";
+          listMatches.innerHTML += arr[i].substr(val.length);
+          listMatches.innerHTML += "<input type='hidden' value='" + arr[i] + "'>";
 
           // when user clicks an option, replace input value with value of the list option
-          b.addEventListener("click", function (e) {
-          input.value = this.getElementsByTagName("input")[0].value;
-          closeAllLists();
-          console.log(input.value);
-          sessionStorage.setItem('animal', input.value);
+          listMatches.addEventListener("click", function (e) {
+              input.value = this.getElementsByTagName("input")[0].value;
+              closeAllLists();
+              console.log(input.value);
+              sessionStorage.setItem('animal', input.value);
         });
-          a.appendChild(b);
+
+
+        listOptions.appendChild(listMatches);
       }
     }
   });
   
-  // function to close the autocomplete list
-  function closeAllLists(option) {
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (option != x[i] && option != input) {
-        x[i].parentNode.removeChild(x[i]);
-      }
-    }
-  }
 
-    // arrow key function
+    // arrow key listener function
    input.addEventListener("keydown", function (e) {
-    var x = document.getElementById(this.id + "autocomplete-list");
-    if (x) x = x.getElementsByTagName("div");
+    let item = document.getElementById(this.id + "animal-list");
+
+    if (item){
+      item = item.getElementsByTagName("div");
+    } 
+
     if (e.keyCode == 40) { // down key press
         listSpot++;
-        addActive(x);
+        addActive(item);
 
     } else if (e.keyCode == 38) { // up key press
-            listSpot--;
-            addActive(x);
+        listSpot--;
+        addActive(item);
     } else if (e.keyCode == 13) { // enter key press
-            e.preventDefault();
-            if (listSpot > -1) {
-        if (x) x[listSpot].click();
+        e.preventDefault();
+      if (listSpot > -1) {
+        if (item) item[listSpot].click();
       }
     }
   });
 
-  
-  function addActive(x) {
-    /*a function to classify an item as "active":*/
-    if (!x) return false;
-    /*start by removing the "active" class on all items:*/
-    removeActive(x);
-    if (listSpot >= x.length) listSpot = 0;
-    if (listSpot < 0) listSpot = (x.length - 1);
-    /*add class "autocomplete-active":*/
-    x[listSpot].classList.add("autocomplete-active");
-  }
-  function removeActive(x) {
-    /*a function to remove the "active" class from all autocomplete items:*/
-    for (var i = 0; i < x.length; i++) {
-      x[i].classList.remove("autocomplete-active");
-    }
-  }
-  function closeAllLists(option) {
-    /*close all autocomplete lists in the document,
-    except the one passed as an argument:*/
-    var x = document.getElementsByClassName("autocomplete-items");
-    for (var i = 0; i < x.length; i++) {
-      if (option != x[i] && option != input) {
-        x[i].parentNode.removeChild(x[i]);
+   // function to close the autocomplete list
+   function closeAllLists(option) {
+    let items = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < items.length; i++) {
+
+      if (option != input && option != items[i]) {
+        items[i].parentNode.removeChild(items[i]);
       }
     }
   }
-  /*execute a function when someone clicks in the document:*/
+
+  
+  function addActive(item) {
+    if (!item) {
+
+      return false;
+    }
+    removeActive(item);
+    if (listSpot >= item.length) {
+      listSpot = 0;
+    } 
+    if (listSpot < 0) {
+
+      listSpot = (item.length - 1);
+    }
+    item[listSpot].classList.add("autocomplete-active");
+  }
+  
+  function closeAllLists(option) {
+    let listItems = document.getElementsByClassName("autocomplete-items");
+    for (let i = 0; i < listItems.length; i++) {
+      if (option != input && option != listItems[i]) {
+
+        listItems[i].parentNode.removeChild(listItems[i]);
+      }
+    }
+  }
+
+
+  function removeActive(item) {
+
+    for (let i = 0; i < item.length; i++) {
+      item[i].classList.remove("autocomplete-active");
+    }
+
+  }
+  
   document.addEventListener("click", function (e) {
     closeAllLists(e.target);
   });

@@ -254,7 +254,10 @@ export const handleEditButtonPress = function(event) {
   let par = profileEditButton.closest('.cardid');
   par.replaceWith(renderprofileEditForm(profile)); 
 
-  var animals = ["Bird", "Dragon", "Lion", "Bear", "Goat", "Scorpion", "Iguana", "Dog", "Monkey"];
+  var animals = ["Bird", "Dragon", "Lion", "Bear", "Goat", "Scorpion", "Iguana", "Dog", "Monkey",
+  "Cat", "Mouse", "Fish", "Tiger", "Deer", "Snake", "Butterfly", "Shark", "Bunny",
+  "Jaguar", "Squid", "Swan", "Dove", "Eagle", "Penguin", "Koala Bear", "Elephant", "Owl", 
+  "Giraffe", "Leopard", "Panda", "Wolf", "Zebra", "Pelican", "Camel", "Coyote", "Dragonfly"];
 autocomplete(document.getElementById("myInput"), animals);
 };
 

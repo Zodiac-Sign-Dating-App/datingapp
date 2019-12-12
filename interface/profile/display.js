@@ -452,11 +452,11 @@ $("#profileImage").click(function(e) {
 
 // The autocomplete function takes an array of options for autocompletion,
 // and compares it to the user input
-function autocomplete(inp, arr) {
+function autocomplete(input, arr) {
   
   // listen for someone typing in an input
-  var currentFocus;
-  inp.addEventListener("input", function (e) {
+  var listSpot;
+  input.addEventListener("input", function (e) {
     var a, b, i, val = this.value;
 
   // close list everytime user clicks input field so value doesn't repeat
@@ -465,7 +465,7 @@ function autocomplete(inp, arr) {
    // if there isnt a text field, return back to nothing
   if (!val) { return false; }
   // assign value to before list begins
-    currentFocus = -1;
+    listSpot = -1;
      // Creative a div element that will act as the list of matching options 
     a = document.createElement("DIV");
    
@@ -485,10 +485,10 @@ function autocomplete(inp, arr) {
 
           // when user clicks an option, replace input value with value of the list option
           b.addEventListener("click", function (e) {
-          inp.value = this.getElementsByTagName("input")[0].value;
+          input.value = this.getElementsByTagName("input")[0].value;
           closeAllLists();
-          console.log(inp.value);
-          sessionStorage.setItem('animal', inp.value);
+          console.log(input.value);
+          sessionStorage.setItem('animal', input.value);
         });
           a.appendChild(b);
       }
@@ -499,27 +499,27 @@ function autocomplete(inp, arr) {
   function closeAllLists(option) {
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
-      if (option != x[i] && option != inp) {
+      if (option != x[i] && option != input) {
         x[i].parentNode.removeChild(x[i]);
       }
     }
   }
 
     // arrow key function
-   inp.addEventListener("keydown", function (e) {
+   input.addEventListener("keydown", function (e) {
     var x = document.getElementById(this.id + "autocomplete-list");
     if (x) x = x.getElementsByTagName("div");
     if (e.keyCode == 40) { // down key press
-        currentFocus++;
+        listSpot++;
         addActive(x);
 
     } else if (e.keyCode == 38) { // up key press
-            currentFocus--;
+            listSpot--;
             addActive(x);
     } else if (e.keyCode == 13) { // enter key press
             e.preventDefault();
-            if (currentFocus > -1) {
-        if (x) x[currentFocus].click();
+            if (listSpot > -1) {
+        if (x) x[listSpot].click();
       }
     }
   });
@@ -530,10 +530,10 @@ function autocomplete(inp, arr) {
     if (!x) return false;
     /*start by removing the "active" class on all items:*/
     removeActive(x);
-    if (currentFocus >= x.length) currentFocus = 0;
-    if (currentFocus < 0) currentFocus = (x.length - 1);
+    if (listSpot >= x.length) listSpot = 0;
+    if (listSpot < 0) listSpot = (x.length - 1);
     /*add class "autocomplete-active":*/
-    x[currentFocus].classList.add("autocomplete-active");
+    x[listSpot].classList.add("autocomplete-active");
   }
   function removeActive(x) {
     /*a function to remove the "active" class from all autocomplete items:*/
@@ -546,7 +546,7 @@ function autocomplete(inp, arr) {
     except the one passed as an argument:*/
     var x = document.getElementsByClassName("autocomplete-items");
     for (var i = 0; i < x.length; i++) {
-      if (option != x[i] && option != inp) {
+      if (option != x[i] && option != input) {
         x[i].parentNode.removeChild(x[i]);
       }
     }

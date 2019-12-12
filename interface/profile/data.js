@@ -507,7 +507,7 @@ const matchData = [
 {
     id: "hunter church",
     age: "21",
-    dob: 04-30-1998,
+    dob: "04-30-1998",
     gender: "male",
     like: ["female"],
     zodiac: "taurus",
@@ -521,7 +521,7 @@ const matchData = [
 {
     id: "rthor",
     age: "21",
-    dob: 06-23-1998,
+    dob: "06-23-1998",
     gender: "male",
     like: ["female"],
     zodiac: "cancer",
@@ -535,7 +535,7 @@ const matchData = [
 {
     id: 'brad',
     age: "21",
-    dob: 05-30-1998,
+    dob: "05-30-1998",
     gender: "male",
     like: ["female"],
     zodiac: "gemini",
@@ -545,6 +545,68 @@ const matchData = [
     bio: "YKTV",
     interests: "partying, drinking, anything",
     insta: "https://www.instagram.com/byount31/",
+},
+
+{
+    id: 'sarah',
+    age: "21",
+    dob: "01-27-1998",
+    gender: "female",
+    like: ["male"],
+    zodiac: "aquarius",
+    matches: ["gemini", "sagittarius", "aries", "leo", "libra"],
+    name: "Sarah Fahey",
+    img: "../../imagessarah.png",
+    bio: "Decide what to be and go be it.",
+    interests: "partying, travelling, working out",
+    insta: "https://www.instagram.com/sarahfahey/",
+},
+
+
+{
+    id: 'lauren',
+    age: "21",
+    dob: "05-22-1998",
+    gender: "female",
+    like: ["male"],
+    zodiac: "gemini",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Lauren Siegel",
+    img: "../../images/lauren.png",
+    bio: "Live. Laugh. You know the rest.",
+    interests: "travelling, reading, swimming",
+    insta: "https://www.instagram.com/laurennsiegel/",
+},
+
+
+{
+    id: 'rima',
+    age: "21",
+    dob: "02-05-1998",
+    gender: "female",
+    like: ["male"],
+    zodiac: "aquarius",
+    matches: ["gemini", "sagittarius", "aries", "leo", "libra"],
+    name: "Bradley Yount",
+    img: "../../images/rima.png",
+    bio: "CLT// UNC",
+    interests: "swimming, traveling, reading",
+    insta: "https://www.instagram.com/rimavpatel/",
+},
+
+{
+    id: 'charlie',
+    age: "20",
+    dob: "06-24-1999",
+    gender: "male",
+    like: ["female"],
+    zodiac: "cancer",
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
+    name: "Charlie Taylor",
+    img: "../../images/charlie.png",
+    bio: "YAKWTFGO",
+    interests: "partying, drinking, hiking",
+    insta: "https://www.instagram.com/charlie.taylor27/",
 },
 
 

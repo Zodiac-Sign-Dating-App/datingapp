@@ -52,5 +52,14 @@
       "bio": "i am the shit",
       "animal": "Dragon"
     }
+  },
+  "girlwhocodes": {
+    "profile": {
+      "name": "Grace Hopper",
+      "interests": "Swimming, surfing, cooking",
+      "bio": "Talk data to me.",
+      "animal": "Elephant",
+      "ig": "https://www.instagram.com/girlwhocodes/"
+    }
   }
 }

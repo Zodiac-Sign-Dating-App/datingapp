@@ -490,7 +490,20 @@ const matchData = [
     insta: "https://www.instagram.com/xnonez/",
 },
 
-
+{
+    id: "olivia",
+    age: "21",
+    dob: "12-31-1997",
+    gender: "female",
+    like: ["male"],
+    zodiac: "capricorn",
+    matches: ["taurus", "cancer", "pisces", "virgo"],
+    name: "Olivia McPhaul",
+    img: "../../images/olivia.png",
+    bio: "Allow yourself to transform as many times to be happy and free.",
+    interests: "writing, reading, drinking wine, podcasts",
+    insta: "https://www.instagram.com/ollyoxxen/",
+},
 
 
 

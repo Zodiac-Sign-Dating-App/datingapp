@@ -101,6 +101,7 @@ export const renderMatches = function(match, sign) {
                                     <img src = "../instagram.png" alt = "insatgram">
                                 </figure> &nbsp &nbsp &nbsp Link with me on Instagram
                             </a>
+                            <br>
                         </div>
                     </div>
                 </div>

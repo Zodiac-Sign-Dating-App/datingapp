@@ -504,67 +504,54 @@ const matchData = [
     interests: "writing, reading, drinking wine, podcasts",
     insta: "https://www.instagram.com/ollyoxxen/",
 },
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+{
+    id: "hunter church",
+    age: "21",
+    dob: 04-30-1998,
+    gender: "male",
+    like: ["female"],
+    zodiac: "taurus",
+    matches: ["taurus", "capricorn", "scorpio", "cancer", "virgo", "pisces"],
+    name: "Hunter Church",
+    img: "../../images/fitkage.jpeg",
+    bio: "Just a gym rat who loves anime. Sometimes I cosplay",
+    interests: "Anime, Working Out",
+    insta: "https://www.instagram.com/fitkage/",
+},
+{
+    id: "rthor",
+    age: "21",
+    dob: 06-23-1998,
+    gender: "male",
+    like: ["female"],
+    zodiac: "cancer",
+    matches: ["taurus", "capricorn", "scorpio", "aries","virgo", "pisces"],
+    name: "Arthur Pruhknitsky",
+    img: "../../images/rthor.jpeg",
+    bio: "As good at sliding in the DM's as I am on the ice",
+    interests: "Hockey",
+    insta: "https://www.instagram.com/rthor_/",
+},
+{
+    id: 'brad',
+    age: "21",
+    dob: 05-30-1998,
+    gender: "male",
+    like: ["female"],
+    zodiac: "gemini",
+    matches: ["gemini", "sagittarius", "aries", "aquarius", "leo", "libra"],
+    name: "Bradley Yount",
+    img: "../../images/byount.jpeg",
+    bio: "YKTV",
+    interests: "partying, drinking, anything",
+    insta: "https://www.instagram.com/byount31/",
+},
 
 
 
 
 /*
-{
-    id: null,
-    age: "20",
-    dob: 00-00-1990,
-    gender: male,
-    like: [female, male],
-    zodiac: gemini,
-    matches: [gemini, sagittarius, aries, aquarius, leo, libra],
-    name: "null",
-    img: "../../images/galaxy.jpeg",
-    bio: "null",
-    interests: "null",
-    insta: "https://www.instagram.com/null/",
-},
-{
-    id: null,
-    age: "20",
-    dob: 00-00-1990,
-    gender: male,
-    like: [female, male],
-    zodiac: cancer,
-    matches: [taurus, capricorn, cancer, pisces, scorpio, virgo, aries],
-    name: "null",
-    img: "../../images/galaxy.jpeg",
-    bio: "null",
-    interests: "null",
-    insta: "https://www.instagram.com/null/",
-},
-{
-    id: null,
-    age: "20",
-    dob: 00-00-1990,
-    gender: male,
-    like: [female, male],
-    zodiac: capricorn,
-    matches: [taurus, cancer, pisces, virgo],
-    name: "null",
-    img: "../../images/galaxy.jpeg",
-    bio: "null",
-    interests: "null",
-    insta: "https://www.instagram.com/null/",
-},
+
 {
     id: null,
     age: "20",

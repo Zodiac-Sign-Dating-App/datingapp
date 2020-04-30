@@ -21,7 +21,7 @@
     "browser-sync": "^2.26.7",
     "bulma": "^0.8.0",
     "init": "^0.1.2",
-    "jquery": "^3.4.1"
+    "jquery": "^3.5.0"
   },
   "devDependencies": {}
 }
